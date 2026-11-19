@@ -15,6 +15,6 @@ bucket_name = "badhon-editzx-media"
 
 [vars]
 YOUTUBE_HANDLE = "@badhoneditzx"
-ALLOWED_ORIGINS = "REPLACE_WITH_YOUR_NETLIFY_SITE_ORIGIN"
+ALLOWED_ORIGINS = "https://badhoneditzx.netlify.app"
 PUBLIC_API_BASE = "https://badhoneditzx.nemesiseditzx984.workers.dev"
 
