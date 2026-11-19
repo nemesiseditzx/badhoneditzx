@@ -176,3 +176,39 @@ body{background:#080a12;color:#f7f7fb}
 .flight-card p{max-width:240px;color:#c5c7d1;font-size:13px;line-height:1.8}
 .drone-tags span{border-radius:30px}
 @media(max-width:760px){.flight-card{padding:28px}.drone-visual{min-height:220px}}
+
+
+/* Interactive interest cards — expressive motion, original palette */
+.universe-section{position:relative;overflow:hidden}
+.universe-section:before{content:"";position:absolute;width:520px;height:520px;right:-260px;top:18%;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(92,112,255,.13),rgba(66,232,255,.045) 38%,transparent 68%);animation:universeDrift 16s ease-in-out infinite alternate}
+.universe-grid{perspective:1200px;gap:16px}
+.interest-card{cursor:pointer;min-height:265px;padding:30px 28px 54px;border-radius:18px;background:linear-gradient(145deg,rgba(29,32,53,.96),rgba(12,15,27,.98));border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 35px rgba(0,0,0,.12);transition:transform .45s cubic-bezier(.2,.75,.25,1),border-color .35s,box-shadow .4s,background .4s}
+.interest-card:before{inset:0;width:auto;height:auto;right:auto;top:auto;border-radius:inherit;opacity:0;background:radial-gradient(300px circle at var(--pointer-x,50%) var(--pointer-y,50%),color-mix(in srgb,var(--card-accent,var(--lime)) 18%,transparent),transparent 70%);transition:opacity .35s}
+.interest-card:after{inset:9px;border:1px solid rgba(255,255,255,.045);border-radius:12px;transition:border-color .35s}
+.interest-card:hover,.interest-card:focus-visible{transform:translateY(-8px) scale(1.012);border-color:color-mix(in srgb,var(--card-accent,var(--lime)) 60%,transparent);box-shadow:0 24px 65px rgba(0,0,0,.34),0 0 35px color-mix(in srgb,var(--card-accent,var(--lime)) 12%,transparent)}
+.interest-card:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.interest-card.is-expanded{grid-row:span 1;min-height:365px;border-color:color-mix(in srgb,var(--card-accent,var(--lime)) 72%,transparent);background:linear-gradient(145deg,rgba(34,39,65,.99),rgba(13,16,30,.99));box-shadow:0 24px 70px rgba(0,0,0,.4),0 0 42px color-mix(in srgb,var(--card-accent,var(--lime)) 13%,transparent)}
+.interest-card .card-number{color:var(--card-accent,var(--lime));font-weight:700}
+.interest-symbol{margin:30px 0 20px;font-size:37px;transition:transform .5s cubic-bezier(.2,.75,.25,1),filter .4s}
+.interest-card:hover .interest-symbol,.interest-card.is-expanded .interest-symbol{transform:translateY(-5px) rotate(-9deg) scale(1.14);filter:drop-shadow(0 0 13px currentColor)}
+.interest-card h3{font-size:20px;letter-spacing:-.025em}
+.interest-card p{max-width:320px;color:#aeb3c5;font-size:12px;line-height:1.85}
+.interest-card .card-arrow{right:27px;bottom:22px;color:var(--card-accent,var(--cyan));font-size:21px}
+.interest-card .card-arrow:after{content:"Explore";display:inline-block;margin-left:9px;font:600 8px var(--mono);letter-spacing:.12em;vertical-align:3px;opacity:.65}
+.interest-detail{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(8px);transition:grid-template-rows .42s ease,opacity .3s ease,transform .35s ease}
+.interest-detail-inner{overflow:hidden;min-height:0}
+.interest-card.is-expanded .interest-detail{grid-template-rows:1fr;opacity:1;transform:translateY(0);margin-top:15px}
+.interest-detail-inner{padding-top:13px;border-top:1px solid rgba(255,255,255,.11);color:#c4c9d8;font-size:12px;line-height:1.85}
+.interest-detail-label{display:block;margin-bottom:7px;color:var(--card-accent,var(--lime));font:700 8px var(--mono);letter-spacing:.15em}
+.interest-card.is-expanded .card-arrow{transform:rotate(45deg)}
+.interest-card.is-expanded .card-arrow:after{content:"Close"}
+.interest-card:nth-child(3n+1){--card-accent:var(--lime)}
+.interest-card:nth-child(3n+2){--card-accent:var(--pink)}
+.interest-card:nth-child(3n){--card-accent:var(--cyan)}
+.interest-card:nth-child(7){--card-accent:var(--lime)}
+@keyframes universeDrift{from{transform:translate3d(0,-25px,0) scale(.92)}to{transform:translate3d(-45px,35px,0) scale(1.08)}}
+@keyframes cardEnter{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.universe-grid .interest-card.visible{animation:cardEnter .65s both}
+@media(max-width:900px){.interest-card.is-expanded{min-height:340px}}
+@media(max-width:700px){.universe-grid{grid-template-columns:1fr;gap:12px}.interest-card{min-height:235px;padding:25px 23px 52px}.interest-card.is-expanded{min-height:0}.interest-card .interest-symbol{margin:22px 0 14px}}
+@media(prefers-reduced-motion:reduce){.universe-section:before{animation:none}.interest-card,.interest-detail{transition:none}.universe-grid .interest-card.visible{animation:none}}
