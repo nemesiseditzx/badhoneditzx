@@ -15,6 +15,28 @@ function renderVideos(items){if(!Array.isArray(items))return;const grid=$('#vide
 function applyCMS(d){if(!d||typeof d!=='object')return;if(d.fullName){document.title=(d.brandName||'Badhon EditZX')+' — '+d.fullName;const meta=document.querySelector('meta[name=description]');if(meta)meta.content='The creative portfolio of '+d.fullName+' — '+(d.brandName||'Badhon EditZX')+'.';}document.documentElement.style.setProperty('--lime',d.accentColor||'#d7ff3f');document.documentElement.style.setProperty('--blue',d.secondaryColor||'#5c70ff');if(d.brandName){const words=d.brandName.trim().split(/\s+/),first=words.shift()||'BADHON',second=words.join(' ')||'EDITZX';const heading=$('.hero h1'),wordsInHeading=heading.querySelectorAll('.hero-word');if(wordsInHeading[0])wordsInHeading[0].textContent=first.toUpperCase();if(wordsInHeading[1]&&wordsInHeading[1].firstChild)wordsInHeading[1].firstChild.textContent=second.toUpperCase();$('.brand > span').textContent=d.brandName.toUpperCase();}pair('[data-cms="heroKicker"]',d.heroKicker);pair('[data-cms="heroRole"]',d.heroRole);pair('[data-cms="heroDescription"]',d.heroDescription);pair('[data-cms="introQuote"]',d.introQuote);pair('[data-cms="aboutIntro"]',d.aboutIntro);pair('#projectDescription',d.projectDescription);if(d.projectTitle)$('#projectTitle').textContent=d.projectTitle;if(d.projectUrl){$$('.project-visual,.project-info .text-link').forEach(el=>el.href=safeUrl(d.projectUrl)||'#');}if(d.contactEmail){const el=$('#contactEmail');el.href='mailto:'+d.contactEmail;el.textContent=d.contactEmail;}const v=$('#heroBgVideo');if(v){const u=safeUrl(d.heroVideoUrl||'');v.poster=safeUrl(d.heroPosterUrl||'');if(u&&v.src!==u){v.src=u;v.load();v.addEventListener('canplay',()=>v.classList.add('is-ready'),{once:true});v.play().catch(()=>{});}else if(!u){v.pause();v.removeAttribute('src');v.load();v.classList.remove('is-ready');}}renderSocials(d.socialLinks);renderVideos(d.videos);setLanguage(language);}
 async function loadCMS(){if(!db)return false;try{const {data,error}=await db.from('site_content').select('content,updated_at').eq('id',1).eq('is_published',true).maybeSingle();if(error)throw error;if(data?.content){applyCMS(data.content);document.documentElement.dataset.cmsReady='true';return true;}return false;}catch(e){console.error('Badhon EditZX CMS load failed:',e);document.documentElement.dataset.cmsReady='fallback';return false;}}
 async function stats(){const endpoint=window.BADHON_STATS_ENDPOINT,status=$('#statsStatus');if(!endpoint)return;try{const r=await fetch(endpoint);if(!r.ok)throw Error('stats unavailable');const d=await r.json();if(d.subscriberCount!=null)$('#subscriberCount').textContent=Number(d.subscriberCount).toLocaleString();if(d.viewCount!=null)$('#viewCount').textContent=Number(d.viewCount).toLocaleString();if(d.videoCount!=null)$('#videoCount').textContent=Number(d.videoCount).toLocaleString();if(status)status.innerHTML='<span class="status-dot"></span><span>Updated from YouTube API · cached response</span>';}catch(e){console.warn(e);}}
+
+/* Lightweight 3D card response and section-aware navigation */
+const finePointer=matchMedia('(pointer:fine)').matches&&!reduce;
+if(finePointer){
+  $('.interest-card,.video-card').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      card.style.setProperty('--pointer-x',(x*100)+'%');card.style.setProperty('--pointer-y',(y*100)+'%');
+      if(card.classList.contains('interest-card'))card.style.transform='perspective(900px) rotateX('+((.5-y)*5)+'deg) rotateY('+((x-.5)*7)+'deg) translateY(-5px)';
+    });
+    card.addEventListener('pointerleave',()=>{card.style.transform='';card.style.setProperty('--pointer-x','50%');card.style.setProperty('--pointer-y','50%');});
+  });
+  const heroVisual=$('.hero-image-frame');
+  if(heroVisual){heroVisual.addEventListener('pointermove',e=>{const r=heroVisual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;heroVisual.style.transform='perspective(1000px) rotateY('+(x*8)+'deg) rotateX('+(-y*7)+'deg) translateZ(8px)';});heroVisual.addEventListener('pointerleave',()=>heroVisual.style.transform='');}
+}
+if('IntersectionObserver'in window){
+  const navLinks=$('.main-nav a');
+  const sections=navLinks.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+  const activeObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});
+  sections.forEach(section=>activeObserver.observe(section));
+}
+
 loadCMS();stats();
 // Keep an already-open portfolio tab in sync with the Admin Studio.
 if(db){try{db.channel('badhon-site-content-live').on('postgres_changes',{event:'UPDATE',schema:'public',table:'site_content',filter:'id=eq.1'},payload=>{if(payload.new?.is_published&&payload.new?.content)applyCMS(payload.new.content);}).subscribe();}catch(e){console.warn('Live CMS subscription unavailable; focus refresh remains enabled.',e);}}
