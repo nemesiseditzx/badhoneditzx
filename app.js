@@ -22,7 +22,7 @@ function applyContent(d){if(!d||typeof d!=='object')return;content=d;
 const fields=['heroKicker','heroRole','heroDescription','introQuote','aboutIntro','droneIntro','projectDescription'];fields.forEach(k=>{if(d[k]!=null){const el=$('[data-cms="'+k+'"]');if(el)el.textContent=textValue(d[k]);}});
 if(d.fullName){const hero=$('.hero-copy h1');if(hero)hero.innerHTML=d.fullName.toUpperCase().replace(/\s+/g,'<br>')+'<span class="hero-period">.</span>';document.title=(d.brandName||'Badhon EditZX')+' — '+d.fullName;}
 if(d.heroKicker){const kicker=$('.hero-kicker');if(kicker)kicker.textContent=textValue(d.heroKicker);}
-if(d.heroPosterUrl){const img=$('#profilePortrait');if(img){img.src=safeUrl(d.heroPosterUrl)||img.src;img.alt=(d.fullName||'Badhon EditZX')+' portrait';}}
+if(d.heroPosterUrl){const img=$('#profilePortrait');if(img){const url=safeUrl(d.heroPosterUrl);if(url){img.src=url;img.dataset.portraitReady='true';img.alt=(d.fullName||'Badhon EditZX')+' portrait';}}}
 if(d.contactEmail){const link=$('.contact-email');if(link){link.href='mailto:'+d.contactEmail;link.textContent=d.contactEmail+' ↗';}}
 if(d.projectTitle){const title=$('.project-info h3');if(title)title.textContent=d.projectTitle;}
 if(d.projectUrl){const link=$('.project-visual');const url=safeUrl(d.projectUrl);if(link&&url)link.href=url;}
@@ -30,8 +30,8 @@ if(d.projectDescription){const p=$('.project-info p');if(p)p.textContent=textVal
 if(d.droneIntro){const e=$('#droneIntroText');if(e)e.textContent=textValue(d.droneIntro);}
 if(d.droneHours){const e=$('#droneHoursText');if(e)e.textContent=d.droneHours;}
 if(d.introQuote){const e=$('.intro-strip p');if(e)e.textContent=textValue(d.introQuote);}
-if(d.accentColor)document.documentElement.style.setProperty('--lime',d.accentColor);
-if(d.secondaryColor)document.documentElement.style.setProperty('--blue',d.secondaryColor);
+/* Portfolio palette is defined by the light theme; legacy CMS colors do not override it. */
+
 const socials=$('.social-links');if(socials&&Array.isArray(d.socialLinks)&&d.socialLinks.length){socials.replaceChildren();d.socialLinks.forEach(item=>{const url=safeUrl(item.url);if(!url)return;const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=(item.name||item.label||'Social')+' ↗';socials.append(a);});}
 renderProjects(d.projects);renderVideos(d.videos);renderSkills(d.skills);renderTimeline(d.experience);
 }
