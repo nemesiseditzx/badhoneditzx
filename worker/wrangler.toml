@@ -1,0 +1,7 @@
+name = "badhon-editzx-youtube-stats"
+main = "worker.js"
+compatibility_date = "2026-11-18"
+
+[vars]
+YOUTUBE_HANDLE = "@badhoneditzx"
+ALLOWED_ORIGIN = "https://badhoneditzx.com"
