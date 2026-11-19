@@ -25,15 +25,15 @@ The browser configuration in `supabase-config.js` contains only the publishable 
 
 1. Open the Supabase Dashboard for this project: https://supabase.com/dashboard/project/mxxhjxzutxzaodcjtdrs
 2. Go to **Authentication → Users → Add user** and create the owner's account with an email and password.
-3. In **SQL Editor**, assign the protected admin role to that exact email (replace the placeholder):
+3. In **SQL Editor**, assign the protected admin role to that exact email (use the confirmed owner email):
    
    ```sql
    update auth.users
    set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"role":"admin"}'::jsonb
-   where lower(email) = lower('YOUR_ADMIN_EMAIL');
+   where lower(email) = lower('bdnemesisgaming@gmail.com');
    ```
 
-4. Sign in at `/admin.html` with that email and password.
+4. Sign in at `/admin.html` with `bdnemesisgaming@gmail.com` and the password you set when creating the user.
 
 Only project owners should be assigned the admin role. Never set the role in `raw_user_meta_data`.
 
