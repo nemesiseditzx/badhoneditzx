@@ -1,1 +1,1 @@
-/api/* https://badhoneditzx.nemesiseditzx984.workers.dev/api/:splat 200
+# Supabase CMS connects directly from the browser. No legacy Cloudflare Worker API proxy.
