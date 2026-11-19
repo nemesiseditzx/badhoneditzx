@@ -1,46 +1,53 @@
 # Badhon EditZX — Supabase CMS
 
-This branch migrates the portfolio CMS from the old Cloudflare Worker/D1/R2 implementation to a dedicated Supabase project.
+The portfolio uses one Supabase project as the shared content source for the Admin Studio and the public homepage.
 
-## Supabase project
+## Project
 
 - Project: `BadhonEditZX`
 - Project ref: `mxxhjxzutxzaodcjtdrs`
 - Region: `us-east-1`
-- Public API URL: `https://mxxhjxzutxzaodcjtdrs.supabase.co`
-- Storage bucket: `badhoneditzx-media`
+- API URL: `https://mxxhjxzutxzaodcjtdrs.supabase.co`
 - Content table: `public.site_content`
+- Storage bucket: `badhoneditzx-media`
 
-The browser configuration in `supabase-config.js` contains only the publishable key. Never add a `service_role`, secret key, database password, or personal access token to this repository.
+The browser config contains only the publishable key. Never put a `service_role` or secret key in the frontend or GitHub.
 
-## CMS security model
+## Data flow
 
-- Public visitors can read the single published content row.
-- Only a signed-in Supabase Auth user with `app_metadata.role = admin` can read drafts, publish content, or upload/modify/delete media.
-- Admin authorization is checked by Postgres RLS. Do not use editable `user_metadata` for admin roles.
-- The media bucket is public-read for display on the portfolio; writes remain admin-only.
-- Maximum upload size is 90 MB. Allowed media: JPG, PNG, WebP, MP4, WebM.
+1. The Admin Studio authenticates with Supabase Auth.
+2. Admin permission is checked using protected `app_metadata.role = admin`.
+3. Admin saves update the existing `site_content` row with `id = 1`.
+4. The public homepage reads the same published row on page load and refreshes on focus/visibility changes. It also subscribes to Supabase Realtime updates where enabled.
+5. Video and poster uploads go to `badhoneditzx-media`; the public homepage uses their public URLs.
 
-## Create the first admin account
+## First admin account
 
-1. Open the Supabase Dashboard for this project: https://supabase.com/dashboard/project/mxxhjxzutxzaodcjtdrs
-2. Go to **Authentication → Users → Add user** and create the owner's account with an email and password.
-3. In **SQL Editor**, assign the protected admin role to that exact email (use the confirmed owner email):
-   
-   ```sql
-   update auth.users
-   set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"role":"admin"}'::jsonb
-   where lower(email) = lower('bdnemesisgaming@gmail.com');
-   ```
+The owner account is `bdnemesisgaming@gmail.com`. Create it under Supabase Dashboard → Authentication → Users, then assign the protected role in SQL Editor:
 
-4. Sign in at `/admin.html` with `bdnemesisgaming@gmail.com` and the password you set when creating the user.
+```sql
+update auth.users
+set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb)
+  || '{"role":"admin"}'::jsonb
+where lower(email) = lower('bdnemesisgaming@gmail.com');
+```
 
-Only project owners should be assigned the admin role. Never set the role in `raw_user_meta_data`.
+Do not set admin privileges in editable `raw_user_meta_data`. Never share the password in chat.
 
-## Deploying
+## Security and storage
 
-This branch is not deployed automatically. Review and merge it only after the GitHub branch checks and admin sign-in test pass. The existing public Netlify deployment remains unchanged until a deployment is explicitly configured and approved.
+- Public visitors can read only the published content row.
+- Only authenticated users with `app_metadata.role = admin` can modify CMS content.
+- The media bucket is public-read for assets used by the public portfolio; writes, updates and deletes are admin-only.
+- Allowed file types: JPEG, PNG, WebP, MP4 and WebM.
+- Maximum upload size: 90 MB.
 
-## Content schema
+## Netlify deployment
 
-`public.site_content` stores the portfolio's editable content as one JSONB object. The seed row preserves the current brand, bilingual intro, GrabZone project, social links, theme colors, and video showcase entries.
+The static site publishes from repository root (`.`) with no build command. Production branch is `main`. Open the Admin Studio at `/admin.html` or `/admin`.
+
+HTML, JavaScript and CSS have revalidation headers to avoid stale scripts. After a deployment, hard-refresh once if an old page remains in the browser cache.
+
+## Operational requirement
+
+The Supabase project must be active and within its plan quota. If the project is paused or over quota, authentication, content reads/writes and storage uploads can fail even when the frontend is correctly deployed.
