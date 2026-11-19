@@ -43,3 +43,21 @@ body.bn{font-family:'Noto Sans Bengali',var(--font)}body.bn .hero h1,body.bn .ey
 .admin-entry{color:var(--lime)!important;border:1px solid rgba(215,255,63,.3);padding:9px 12px;border-radius:2px}.admin-entry:hover{background:var(--lime);color:var(--ink)!important}
 @media(max-width:700px){.hero{padding-left:18px;padding-right:18px;min-height:auto}.hero-bg-video.is-ready{opacity:.3}.hero-video-overlay{background:linear-gradient(180deg,rgba(12,13,16,.75),rgba(12,13,16,.88) 60%,#101114)}.story-scroll{height:250vh}.story-sticky{min-height:600px;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:20px;padding:75px 22px 50px;align-content:center}.story-left h2{font-size:43px;margin:16px 0 10px}.story-lead{font-size:11px;margin:0}.story-progress{margin-top:18px;width:180px}.story-panels{height:360px;min-height:0}.story-panel{padding:24px}.story-glyph{margin:18px 0}.story-panel h3{font-size:37px}.story-panel p{font-size:12px}.story-foot{margin-top:20px;font-size:7px}.story-side-label{right:10px;font-size:6px}}
 @media(prefers-reduced-motion:reduce){.story-panel,.hero-bg-video{transition:none}}
+
+/* Portfolio motion polish — subtle, responsive and reduced-motion aware */
+.hero-orb{will-change:transform}
+.interest-card,.video-card,.project-visual,.channel-cta{transition:transform .45s var(--ease),border-color .35s,box-shadow .45s,background .35s}
+.interest-card:hover{transform:translateY(-8px);border-color:rgba(215,255,63,.35);box-shadow:0 24px 60px rgba(0,0,0,.3),0 0 35px rgba(215,255,63,.055)}
+.interest-card:hover .interest-symbol{transform:translateY(-5px) rotate(-7deg);text-shadow:0 0 28px rgba(215,255,63,.25)}
+.interest-symbol{transition:transform .45s var(--ease),text-shadow .45s}
+.video-card:hover{transform:translateY(-7px)}
+.video-card:hover .video-thumb img{transform:scale(1.055)}
+.video-thumb img{transition:transform .7s var(--ease)}
+.project-visual:hover{transform:translateY(-5px);box-shadow:0 25px 65px #0006}
+.btn{transition:transform .28s var(--ease),box-shadow .28s,background .28s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(215,255,63,.12)}
+.section-label>span:last-child{transition:color .25s}
+.section-label:hover>span:last-child{color:var(--lime)}
+.contact-email{transition:color .25s,border-color .25s}
+.contact-email:hover{color:var(--lime);border-color:var(--lime)}
+@media(prefers-reduced-motion:reduce){.interest-card,.video-card,.project-visual,.channel-cta,.btn,.interest-symbol{transition:none}.interest-card:hover,.video-card:hover,.project-visual:hover,.btn:hover{transform:none}}
