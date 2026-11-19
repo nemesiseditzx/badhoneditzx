@@ -11,24 +11,27 @@ The site includes a private editor at `/admin.html`. It can edit brand identity,
 
 The cinematic hero video plays muted and loops behind the intro. Below it, a pinned three-chapter scroll sequence transitions through CREATE, BUILD and EXPLORE.
 
-### Cloudflare provisioning (required before CMS login/publishing works)
+### Cloudflare provisioning (workers.dev, no custom domain required)
 
-1. In the Cloudflare account, create a D1 database named `badhon-editzx-cms`:
-   `npx wrangler d1 create badhon-editzx-cms`
-2. Copy the returned database ID into `worker/wrangler.toml`, replacing `REPLACE_WITH_D1_DATABASE_ID`.
-3. Create the R2 bucket:
-   `npx wrangler r2 bucket create badhon-editzx-media`
-4. From the `worker/` directory apply the schema:
-   `npx wrangler d1 migrations apply badhon-editzx-cms --remote`
-5. Set private Worker secrets (never paste them into chat or frontend files):
-   - `npx wrangler secret put ADMIN_PASSWORD`
-   - `npx wrangler secret put SESSION_SECRET` (use a long random value)
-   - Optional: `npx wrangler secret put YOUTUBE_API_KEY`
-6. Ensure the domain is active in the Cloudflare zone and the custom API hostname `api.badhoneditzx.com` can be attached. Then deploy from `worker/`:
-   `npx wrangler deploy`
-7. Publish the repository root to Netlify and open `https://badhoneditzx.com/admin.html`.
+The CMS Worker uses the existing Cloudflare Worker service name `badhoneditzx` and the public endpoint:
 
-The Worker is configured to accept browser requests only from `https://badhoneditzx.com` and `https://www.badhoneditzx.com`. Update `ALLOWED_ORIGINS` if the live site uses a different canonical host. The admin session uses an HttpOnly, Secure, SameSite cookie. Configure Cloudflare rate limiting on `/api/admin/login` before public launch.
+`https://badhoneditzx.nemesiseditzx984.workers.dev`
+
+1. In the same Cloudflare account, create a **new, separate D1 database** named `badhon-editzx-cms`. Do not reuse any GrabZone database. Copy its database ID into `worker/wrangler.toml`, replacing `REPLACE_WITH_D1_DATABASE_ID`.
+2. Create a **new, separate R2 bucket** named `badhon-editzx-media`. Do not reuse `grabzone-assets`.
+3. Set `ALLOWED_ORIGINS` in `worker/wrangler.toml` to the exact HTTPS origin of the public portfolio hosting site (for example, the exact `https://<site>.netlify.app` address; no trailing slash). Do not use a wildcard.
+4. In Cloudflare's Worker build settings, configure the GitHub deployment to use branch `feature/cms-cinematic-intro`, root directory `worker`, and deploy command `npx wrangler deploy`. Keep the build command empty. The Wrangler config is in that root directory.
+5. Apply the D1 migration from the `worker/` directory: `npx wrangler d1 migrations apply badhon-editzx-cms --remote`.
+6. Add these Worker secrets in the Cloudflare dashboard (Settings → Variables and Secrets):
+   - `ADMIN_PASSWORD`: a strong, unique admin password.
+   - `SESSION_SECRET`: a long random secret (at least 32 random bytes).
+   - Optional `YOUTUBE_API_KEY`.
+   Never put these secrets in GitHub, frontend files, or chat.
+7. Deploy the selected branch. Verify `GET https://badhoneditzx.nemesiseditzx984.workers.dev/api/content` returns JSON.
+8. Publish the frontend branch to its static host and open `/admin.html`. The admin session cookie is Secure, HttpOnly and SameSite=None because the API is on workers.dev; browser third-party-cookie restrictions can vary, so test sign-in in the target browser before launch.
+
+Cloudflare resources, D1 database ID, Worker secrets and the exact frontend origin must be configured in the account before login, publishing and media uploads can work. Do not delete or modify GrabZone's existing Workers, D1 databases or R2 buckets.
+
 
 ### Existing YouTube stats proxy
 
