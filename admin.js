@@ -1,5 +1,5 @@
 (() => {
-const API=(window.BADHON_API_BASE||'https://api.badhoneditzx.com').replace(/\/$/,''),$=s=>document.querySelector(s),form=$('#contentForm');
+const API=(window.BADHON_API_BASE||'').replace(/\/$/,''),$=s=>document.querySelector(s),form=$('#contentForm');
 const val=k=>form.elements[k]?.value??'';
 async function api(path,options={}){const r=await fetch(API+path,{credentials:'include',...options});let d={};try{d=await r.json();}catch{}if(!r.ok)throw Error(d.error||'Request failed ('+r.status+')');return d;}
 function status(t,saved=false){const e=$('#publishState');e.textContent=(saved?'✓ ':'● ')+t;e.classList.toggle('saved',saved);}
