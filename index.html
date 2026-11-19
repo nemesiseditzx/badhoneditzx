@@ -18,7 +18,8 @@
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
   <header class="site-header" id="top">
     <a class="brand" href="#home" aria-label="Badhon EditZX home">
       <img src="assets/badhon-editzx-logo.jpg" alt="Badhon EditZX logo" />
@@ -38,7 +39,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="mainContent" tabindex="-1">
     <section class="hero section-wrap" id="home">
 <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><div class="hero-video-overlay" aria-hidden="true"></div>
       <div class="hero-grid-glow"></div><div class="hero-orb hero-orb-a"></div><div class="hero-orb hero-orb-b"></div><div class="hero-index">BDX — 001<br/>INDEPENDENT CREATIVE</div>
