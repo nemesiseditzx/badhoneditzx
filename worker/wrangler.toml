@@ -1,4 +1,4 @@
-name = "badhon-editzx-cms"
+name = "badhoneditzx"
 main = "worker.js"
 compatibility_date = "2026-11-18"
 
@@ -14,9 +14,8 @@ bucket_name = "badhon-editzx-media"
 
 [vars]
 YOUTUBE_HANDLE = "@badhoneditzx"
-ALLOWED_ORIGINS = "https://badhoneditzx.com,https://www.badhoneditzx.com"
-COOKIE_DOMAIN = ".badhoneditzx.com"
+ALLOWED_ORIGINS = "REPLACE_WITH_YOUR_NETLIFY_SITE_ORIGIN"
+PUBLIC_API_BASE = "https://badhoneditzx.nemesiseditzx984.workers.dev"
 
-[[routes]]
-pattern = "api.badhoneditzx.com"
-custom_domain = true
+
+workers_dev = true
