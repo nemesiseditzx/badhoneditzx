@@ -44,3 +44,26 @@ body{background:radial-gradient(ellipse at 12% 0%,rgba(92,112,255,.16),transpare
 @keyframes studioFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:760px){.studio-welcome{align-items:flex-start;flex-direction:column;padding:18px}.studio-preview{width:100%;justify-content:space-between}.dash-header{padding-inline:8px}.editor-card{border-radius:11px}}
 @media(prefers-reduced-motion:reduce){.login-card:before{animation:none}.dashboard{animation:none}}
+
+/* Simplified luxury admin studio */
+:root{--bg:#10100f;--panel:#1a1916;--text:#f0ede5;--muted:#aaa398;--line:rgba(199,168,117,.18);--lime:#c7a875}
+body{background:radial-gradient(ellipse at 85% 0%,rgba(199,168,117,.1),transparent 35%),#10100f;color:#f0ede5}
+.login-card,.editor-card{border-radius:4px}.login-card{background:linear-gradient(145deg,#201e1a,#151513);border-color:rgba(199,168,117,.22)}
+.eyebrow,.card-heading>span,.studio-kicker{color:#c7a875}.login-card h1 span,.dash-intro h1 span{color:#c7a875}
+.primary-btn{background:#c7a875;color:#15120e;border-radius:3px}.primary-btn:hover{background:#dfc49a}
+.editor-nav{border-radius:3px;background:#171714;border-color:var(--line)}.editor-nav a{border-radius:2px}.editor-nav a:hover{background:rgba(199,168,117,.08);color:#dfc49a}
+.editor-card{background:linear-gradient(145deg,#1c1b18,#151513);border-color:rgba(199,168,117,.15);box-shadow:0 15px 45px #0003}.editor-card:hover{border-color:rgba(199,168,117,.35)}
+.login-card input,.editor-card input,.editor-card textarea{border-radius:3px;background:#11110f;border-color:rgba(199,168,117,.2)}
+.login-card input:focus,.editor-card input:focus,.editor-card textarea:focus{border-color:#c7a875;box-shadow:0 0 0 3px rgba(199,168,117,.12)}
+.studio-welcome{border-radius:3px;border-color:rgba(199,168,117,.2);background:linear-gradient(105deg,rgba(199,168,117,.11),rgba(255,255,255,.018))}
+.studio-preview{border-radius:3px;border-color:rgba(199,168,117,.4);color:#d7bd91}
+.save-bar{border-radius:3px;background:rgba(25,24,21,.94);border-color:rgba(199,168,117,.25)}.publish-state.saved{color:#d7bd91;border-color:rgba(199,168,117,.5)}
+.simple-list-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:24px 0 10px;color:#e9e3d8;font:600 12px var(--font)}
+.add-row-btn,.remove-row-btn{border:1px solid rgba(199,168,117,.35);background:rgba(199,168,117,.08);color:#d7bd91;padding:10px 13px;border-radius:3px;font:600 10px var(--font);cursor:pointer}
+.remove-row-btn{color:#c5a9a0;border-color:rgba(197,169,160,.25);background:rgba(197,169,160,.06)}
+.simple-rows{display:flex;flex-direction:column;gap:10px}
+.simple-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) auto;gap:10px;padding:12px;border:1px solid rgba(199,168,117,.13);background:rgba(0,0,0,.12)}
+.simple-row[data-row-type="social"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr) minmax(0,.7fr) auto}
+.simple-row input{margin:0!important;min-width:0}.simple-row .remove-row-btn{align-self:center}
+@media(max-width:760px){.simple-row,.simple-row[data-row-type="social"]{grid-template-columns:1fr}.simple-row .remove-row-btn{width:100%}.simple-list-heading{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.editor-card,.login-card{animation:none}}
