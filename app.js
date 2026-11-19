@@ -27,6 +27,9 @@ if(d.contactEmail){const link=$('.contact-email');if(link){link.href='mailto:'+d
 if(d.projectTitle){const title=$('.project-info h3');if(title)title.textContent=d.projectTitle;}
 if(d.projectUrl){const link=$('.project-visual');const url=safeUrl(d.projectUrl);if(link&&url)link.href=url;}
 if(d.projectDescription){const p=$('.project-info p');if(p)p.textContent=textValue(d.projectDescription);}
+if(d.droneIntro){const e=$('#droneIntroText');if(e)e.textContent=textValue(d.droneIntro);}
+if(d.droneHours){const e=$('#droneHoursText');if(e)e.textContent=d.droneHours;}
+if(d.introQuote){const e=$('.intro-strip p');if(e)e.textContent=textValue(d.introQuote);}
 if(d.accentColor)document.documentElement.style.setProperty('--lime',d.accentColor);
 if(d.secondaryColor)document.documentElement.style.setProperty('--blue',d.secondaryColor);
 const socials=$('.social-links');if(socials&&Array.isArray(d.socialLinks)&&d.socialLinks.length){socials.replaceChildren();d.socialLinks.forEach(item=>{const url=safeUrl(item.url);if(!url)return;const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=(item.name||item.label||'Social')+' ↗';socials.append(a);});}
