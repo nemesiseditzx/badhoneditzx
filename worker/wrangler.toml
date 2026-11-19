@@ -1,6 +1,7 @@
 name = "badhoneditzx"
 main = "worker.js"
 compatibility_date = "2026-11-18"
+workers_dev = true
 
 [[d1_databases]]
 binding = "DB"
@@ -17,5 +18,3 @@ YOUTUBE_HANDLE = "@badhoneditzx"
 ALLOWED_ORIGINS = "REPLACE_WITH_YOUR_NETLIFY_SITE_ORIGIN"
 PUBLIC_API_BASE = "https://badhoneditzx.nemesiseditzx984.workers.dev"
 
-
-workers_dev = true
