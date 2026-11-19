@@ -166,3 +166,13 @@ body{background:#080a12;color:#f7f7fb}
 @keyframes droneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media(max-width:760px){.drone-section{padding:82px 0}.drone-layout{grid-template-columns:1fr;gap:25px}.drone-visual{min-height:310px}.drone-radar{width:min(290px,78vw)}.flight-stat{right:0;bottom:0}.drone-copy h2{font-size:43px}}
 @media(prefers-reduced-motion:reduce){.drone-silhouette{animation:none}}
+
+/* Simple editorial drone experience card */
+.drone-visual{min-height:300px;display:flex;align-items:center;justify-content:center}
+.flight-card{width:min(390px,100%);padding:38px;background:linear-gradient(145deg,#171a2d,#10121d);border:1px solid rgba(66,232,255,.2);border-radius:14px;box-shadow:0 22px 65px #0005}
+.flight-card-label,.flight-card-unit{display:block;font:600 9px var(--mono);letter-spacing:.16em;color:#aeb2c2}
+.flight-card strong{display:block;margin:20px 0 8px;font:700 clamp(72px,10vw,112px)/.9 var(--display);letter-spacing:-.08em;color:var(--lime)}
+.flight-card-rule{height:1px;margin:26px 0;background:linear-gradient(90deg,var(--blue),rgba(255,255,255,.08))}
+.flight-card p{max-width:240px;color:#c5c7d1;font-size:13px;line-height:1.8}
+.drone-tags span{border-radius:30px}
+@media(max-width:760px){.flight-card{padding:28px}.drone-visual{min-height:220px}}
