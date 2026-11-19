@@ -3,40 +3,45 @@
 Bilingual (English/Bangla), responsive personal portfolio for **Md Mahim Badhon**, with the public brand **Badhon EditZX**.
 
 ## Public site
+
 The repository root is published as a static Netlify site. No build command is required; publish directory is `.`.
 
-## CMS admin and cinematic intro
+## Admin CMS — Firebase
 
-The site includes a private editor at `/admin.html`. It can edit brand identity, bilingual hero text, background intro video, intro quote, About copy, featured project, videos, social links, contact email and accent colors. Saved content is served from Cloudflare D1 and loaded by the public website. Intro video uploads are stored in Cloudflare R2.
+The private content editor is available at `/admin.html`. It uses:
+- **Firebase Authentication** (Email/Password) for admin sign-in.
+- **Cloud Firestore** document `site/content` for editable portfolio content.
+- **Cloud Storage for Firebase** for intro video uploads.
+- Netlify continues to host the existing static website.
 
-The cinematic hero video plays muted and loops behind the intro. Below it, a pinned three-chapter scroll sequence transitions through CREATE, BUILD and EXPLORE.
+The editor manages brand identity, bilingual hero and About text, background intro video, featured project, video and social links, contact email and theme colors. Publishing writes the content document; the public site reads it and applies the changes.
 
-### Cloudflare provisioning (workers.dev, no custom domain required)
+### Firebase setup
 
-The CMS Worker uses the existing Cloudflare Worker service name `badhoneditzx` and the public endpoint:
+1. Create a Firebase project in the Firebase Console and register a Web app.
+2. Enable **Authentication → Sign-in method → Email/Password**.
+3. Create one admin user under **Authentication → Users → Add user**. Do not enable public sign-up.
+4. Create a **Cloud Firestore** database. Start in production mode.
+5. Create a **Cloud Storage** bucket if you want direct video uploads.
+6. Copy the Web app configuration into `firebase-config.js`. Replace every `REPLACE_...` placeholder. Set `adminEmail` to the exact admin email created in step 3.
+7. In both `firestore.rules` and `storage.rules`, replace `REPLACE_WITH_ADMIN_EMAIL` with that same admin email. Publish the rules in the Firebase Console.
+8. Publish the Netlify site from the `feature/firebase-cms` branch for testing. Open `/admin.html`, sign in, and test a small text change before uploading a video.
 
-`https://badhoneditzx.nemesiseditzx984.workers.dev`
+### Important billing note
 
-1. In the same Cloudflare account, create a **new, separate D1 database** named `badhon-editzx-cms`. Do not reuse any GrabZone database. Copy its database ID into `worker/wrangler.toml`, replacing `REPLACE_WITH_D1_DATABASE_ID`.
-2. Create a **new, separate R2 bucket** named `badhon-editzx-media`. Do not reuse `grabzone-assets`.
-3. Set `ALLOWED_ORIGINS` in `worker/wrangler.toml` to the exact HTTPS origin of the public portfolio hosting site (for example, the exact `https://<site>.netlify.app` address; no trailing slash). Do not use a wildcard.
-4. In Cloudflare's Worker build settings, configure the GitHub deployment to use branch `feature/cms-cinematic-intro`, root directory `worker`, and deploy command `npx wrangler deploy`. Keep the build command empty. The Wrangler config is in that root directory.
-5. Apply the D1 migration from the `worker/` directory: `npx wrangler d1 migrations apply badhon-editzx-cms --remote`.
-6. Add these Worker secrets in the Cloudflare dashboard (Settings → Variables and Secrets):
-   - `ADMIN_PASSWORD`: a strong, unique admin password.
-   - `SESSION_SECRET`: a long random secret (at least 32 random bytes).
-   - Optional `YOUTUBE_API_KEY`.
-   Never put these secrets in GitHub, frontend files, or chat.
-7. Deploy the selected branch. Verify `GET https://badhoneditzx.nemesiseditzx984.workers.dev/api/content` returns JSON.
-8. Publish the frontend branch to its static host and open `/admin.html`. The admin session cookie is Secure, HttpOnly and SameSite=None because the API is on workers.dev; browser third-party-cookie restrictions can vary, so test sign-in in the target browser before launch.
+As of February 3, 2026, Firebase Cloud Storage requires the Firebase project to be on the **Blaze pay-as-you-go plan**. No-cost usage allowances may still apply, but a linked billing account is required and usage beyond allowances can be charged. Firestore and Authentication can be tested without enabling Storage uploads. Do not enable billing until you are comfortable with the billing account and usage limits.
 
-Cloudflare resources, D1 database ID, Worker secrets and the exact frontend origin must be configured in the account before login, publishing and media uploads can work. Do not delete or modify GrabZone's existing Workers, D1 databases or R2 buckets.
+### Security
 
+- The Firebase web config is intended to be public; it is not an admin credential.
+- Firestore and Storage rules allow public reads only for the portfolio content/media, and restrict writes to the single configured admin email.
+- Never put service-account private keys or other server credentials in this repository or browser code.
+- Do not enable anonymous or public user registration for this single-admin portfolio.
 
-### Existing YouTube stats proxy
+### Cloudflare migration status
 
-The CMS Worker retains the `/youtube-channel-stats` endpoint. Set `YOUTUBE_API_KEY` as a Worker secret to enable it. No API key is exposed in browser code.
+The previous Cloudflare Worker/D1/R2 implementation is retained in the `worker/` directory for reference only. The Firebase frontend no longer calls it. Do not deploy or merge the old Cloudflare CMS configuration. The existing Cloudflare resources created during setup are not needed by this Firebase version; leave them untouched until the Firebase version has been tested and the user explicitly chooses to clean them up.
 
-### Deployment status
+### Cinematic experience
 
-The code and configuration are committed in this repository. Cloudflare D1, R2, Worker secrets, and the custom API domain are account resources and still need to be provisioned before admin authentication, video upload, and publishing can work. The static public site remains viewable without the CMS backend; until the Worker is deployed, the built-in page content is used.
+The homepage includes a muted looping hero-video layer and a pinned three-chapter scroll sequence: CREATE, BUILD and EXPLORE.
