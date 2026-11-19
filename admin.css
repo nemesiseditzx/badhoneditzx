@@ -18,3 +18,29 @@
 @keyframes adminRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes adminPulse{0%{box-shadow:0 0 0 0 #d7ff3f35}100%{box-shadow:0 0 0 14px transparent}}
 @media(prefers-reduced-motion:reduce){.login-card,.editor-card{animation:none}.editor-card,.admin-brand img,.primary-btn:after{transition:none}.editor-card:hover{transform:none}}
+
+/* Unified creator-console visual system */
+body{background:radial-gradient(ellipse at 12% 0%,rgba(92,112,255,.16),transparent 36%),radial-gradient(ellipse at 92% 18%,rgba(215,255,63,.08),transparent 30%),#0b0d12}
+.admin-noise{opacity:.055}
+.login-card{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(145deg,rgba(32,35,45,.96),rgba(17,19,25,.96));border:1px solid rgba(255,255,255,.13);box-shadow:0 35px 110px #0009,0 0 70px rgba(92,112,255,.08)}
+.login-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--lime),#5c70ff,transparent);background-size:200% 100%;animation:studioSweep 5s linear infinite}
+.login-card h1{font-size:clamp(58px,8vw,82px);letter-spacing:-.09em}
+.login-card input,.editor-card input,.editor-card textarea{border-radius:9px;background:rgba(9,11,16,.72);border-color:rgba(255,255,255,.13);padding:15px 16px}
+.primary-btn{border-radius:9px;min-height:50px;box-shadow:0 8px 25px rgba(215,255,63,.13)}
+.dashboard{animation:studioFade .6s ease both}
+.dash-header{position:sticky;top:0;z-index:20;background:rgba(11,13,18,.78);backdrop-filter:blur(18px);padding-inline:16px;border:1px solid rgba(255,255,255,.08);border-top:0;border-radius:0 0 14px 14px}
+.studio-welcome{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 24px;margin:28px 0 10px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:linear-gradient(105deg,rgba(92,112,255,.13),rgba(215,255,63,.055),rgba(255,255,255,.025));box-shadow:0 18px 50px #0003}
+.studio-welcome-copy{display:flex;flex-direction:column;gap:6px}.studio-kicker{font:500 8px var(--mono);letter-spacing:.2em;color:var(--lime)}.studio-welcome-copy strong{font:700 clamp(17px,2vw,23px) var(--display);letter-spacing:-.04em}.studio-welcome-copy>span:last-child{font-size:11px;color:var(--muted)}
+.studio-preview{display:inline-flex;align-items:center;gap:22px;padding:13px 16px;border:1px solid #d7ff3f55;border-radius:9px;color:var(--lime);font:700 10px var(--font);text-decoration:none;white-space:nowrap;transition:background .25s,transform .25s}.studio-preview:hover{background:#d7ff3f13;transform:translateY(-2px)}.studio-preview b{font-size:16px}
+.dash-intro{padding-top:42px}
+.editor-grid{gap:18px}.editor-nav{border-radius:13px;padding:10px;background:rgba(20,23,31,.86);backdrop-filter:blur(16px)}
+.editor-nav a{border-radius:7px;padding:13px 12px}
+.editor-card{border-radius:14px;background:linear-gradient(145deg,rgba(29,32,41,.96),rgba(17,19,25,.96));box-shadow:0 15px 45px #0002}
+.editor-card:hover{border-color:rgba(215,255,63,.28)}
+.card-heading h2{font-size:29px}
+.save-bar{border-radius:13px;background:rgba(20,23,31,.88);backdrop-filter:blur(20px)}
+.form-message{line-height:1.7}
+@keyframes studioSweep{to{background-position:200% 0}}
+@keyframes studioFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.studio-welcome{align-items:flex-start;flex-direction:column;padding:18px}.studio-preview{width:100%;justify-content:space-between}.dash-header{padding-inline:8px}.editor-card{border-radius:11px}}
+@media(prefers-reduced-motion:reduce){.login-card:before{animation:none}.dashboard{animation:none}}
