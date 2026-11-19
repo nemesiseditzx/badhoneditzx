@@ -16,6 +16,29 @@ function applyCMS(d){if(!d||typeof d!=='object')return;if(d.fullName){document.t
 async function loadCMS(){if(!db)return false;try{const {data,error}=await db.from('site_content').select('content,updated_at').eq('id',1).eq('is_published',true).maybeSingle();if(error)throw error;if(data?.content){applyCMS(data.content);document.documentElement.dataset.cmsReady='true';return true;}return false;}catch(e){console.error('Badhon EditZX CMS load failed:',e);document.documentElement.dataset.cmsReady='fallback';return false;}}
 async function stats(){const endpoint=window.BADHON_STATS_ENDPOINT,status=$('#statsStatus');if(!endpoint)return;try{const r=await fetch(endpoint);if(!r.ok)throw Error('stats unavailable');const d=await r.json();if(d.subscriberCount!=null)$('#subscriberCount').textContent=Number(d.subscriberCount).toLocaleString();if(d.viewCount!=null)$('#viewCount').textContent=Number(d.viewCount).toLocaleString();if(d.videoCount!=null)$('#videoCount').textContent=Number(d.videoCount).toLocaleString();if(status)status.innerHTML='<span class="status-dot"></span><span>Updated from YouTube API · cached response</span>';}catch(e){console.warn(e);}}
 
+/* Expandable interest cards: accessible click, Enter and Space interactions */
+const interestDetails=[
+ {en:"I work with pacing, transitions, typography and sound to shape a clear visual story. I enjoy experimenting with edits and refining the small details that make a video feel complete.",bn:"পেসিং, ট্রানজিশন, টাইপোগ্রাফি ও সাউন্ড ব্যবহার করে একটি পরিষ্কার ভিজ্যুয়াল গল্প তৈরি করতে ভালো লাগে। এডিট নিয়ে পরীক্ষা করি এবং ছোট ছোট ডিটেইল ঠিক করি।"},
+ {en:"Music is another way I explore creativity — from melodies and lyrics to arrangement, mood and the overall sound of a track.",bn:"মেলোডি, লিরিক্স, অ্যারেঞ্জমেন্ট, আবহ এবং একটি গানের সামগ্রিক সাউন্ডের মাধ্যমে সৃজনশীলতা প্রকাশের আরেকটি জায়গা হলো মিউজিক।"},
+ {en:"I enjoy turning ideas into real digital projects, learning how a product is shaped, presented and improved for the people who use it.",bn:"আইডিয়াকে বাস্তব ডিজিটাল প্রজেক্টে রূপ দিতে এবং ব্যবহারকারীদের জন্য একটি পণ্য কীভাবে তৈরি, উপস্থাপন ও উন্নত করা হয় তা শিখতে ভালো লাগে।"},
+ {en:"I build and explore websites, interfaces and digital tools. I enjoy understanding how the pieces work together, then improving the experience.",bn:"ওয়েবসাইট, ইন্টারফেস ও ডিজিটাল টুল তৈরি এবং শেখার আগ্রহ আছে। বিভিন্ন অংশ কীভাবে একসঙ্গে কাজ করে তা বুঝে অভিজ্ঞতা আরও ভালো করতে ভালো লাগে।"},
+ {en:"I study market behaviour, risk and decision-making. The focus is on learning, patience and discipline — not chasing quick wins.",bn:"মার্কেটের আচরণ, ঝুঁকি এবং সিদ্ধান্ত নেওয়ার বিষয়গুলো শেখার চেষ্টা করি। দ্রুত লাভের পেছনে না ছুটে শেখা, ধৈর্য ও শৃঙ্খলার ওপর গুরুত্ব দিই।"},
+ {en:"Cricket, badminton and football take me away from the screen. Sports help me enjoy movement, teamwork and a healthy competitive mindset.",bn:"ক্রিকেট, ব্যাডমিন্টন ও ফুটবল আমাকে স্ক্রিনের বাইরে সক্রিয় রাখে। খেলাধুলা থেকে দলগত কাজ, চলাফেরা এবং ইতিবাচক প্রতিযোগিতার মানসিকতা পাই।"},
+ {en:"I have 50+ hours of drone flight experience. I enjoy planning smooth flight paths, finding fresh aerial angles and capturing scenes from above.",bn:"ড্রোন ওড়ানোর ৫০ ঘণ্টার বেশি অভিজ্ঞতা আছে। মসৃণ ফ্লাইট পাথ পরিকল্পনা, নতুন aerial angle খুঁজে বের করা এবং ওপর থেকে দৃশ্য ধারণ করতে ভালো লাগে।"}
+];
+const interestCards=$('.interest-card');
+interestCards.forEach((card,index)=>{
+ card.setAttribute('role','button');card.setAttribute('tabindex','0');card.setAttribute('aria-expanded','false');
+ const detail=document.createElement('div');detail.className='interest-detail';
+ const inner=document.createElement('div');inner.className='interest-detail-inner';
+ const label=document.createElement('span');label.className='interest-detail-label';label.textContent='A CLOSER LOOK';
+ const copy=document.createElement('span');copy.textContent=interestDetails[index]?.[language]||interestDetails[index]?.en||'';
+ inner.append(label,copy);detail.append(inner);card.insertBefore(detail,card.querySelector('.card-arrow'));
+ const toggleCard=()=>{const opening=!card.classList.contains('is-expanded');interestCards.forEach(other=>{other.classList.remove('is-expanded');other.setAttribute('aria-expanded','false');});if(opening){card.classList.add('is-expanded');card.setAttribute('aria-expanded','true');}};
+ card.addEventListener('click',e=>{if(e.target.closest('a'))return;toggleCard();});
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleCard();}if(e.key==='Escape'){card.classList.remove('is-expanded');card.setAttribute('aria-expanded','false');}});
+});
+
 /* Lightweight 3D card response and section-aware navigation */
 const finePointer=matchMedia('(pointer:fine)').matches&&!reduce;
 if(finePointer){
