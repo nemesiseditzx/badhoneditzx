@@ -1,1 +1,2 @@
 # Supabase CMS connects directly from the browser. No legacy Cloudflare Worker API proxy.
+/admin /admin.html 200

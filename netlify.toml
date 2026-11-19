@@ -1,2 +1,18 @@
 [build]
   publish = "."
+
+# Prevent stale Firebase-era or cached frontend scripts from masking CMS fixes.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
