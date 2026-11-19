@@ -57,3 +57,21 @@ body{background:radial-gradient(ellipse at 12% 0%,rgba(92,112,255,.16),transpare
 .simple-row[data-row-type="experience"]{grid-template-columns:110px 1fr 2fr auto}
 .remove-row-btn{border-color:#ff777744;color:#ffaaaa;background:#ff77770b}
 @media(max-width:760px){.simple-row,.simple-row[data-row-type="projects"],.simple-row[data-row-type="skills"],.simple-row[data-row-type="experience"]{grid-template-columns:1fr}.simple-row[data-row-type="projects"] input:nth-child(3){grid-column:auto}}
+
+/* LIGHT CREATOR STUDIO */
+:root{--bg:#f7f8fc;--panel:#fff;--text:#182033;--muted:#68738a;--line:rgba(24,32,51,.13);--lime:#315cf5}
+body{background:#f7f8fc;color:var(--text)}
+.admin-noise{opacity:0}
+.login-card,.editor-card,.studio-welcome,.dash-intro,.editor-nav{background:#fff;border-color:var(--line);box-shadow:0 14px 40px rgba(26,42,80,.06)}
+.admin-brand{color:var(--text)}
+.admin-brand span,.eyebrow,.studio-kicker,.card-heading>span{color:#315cf5}
+.login-card h1,.dash-intro h1,.card-heading h2,.studio-welcome-copy strong{color:var(--text)}
+.muted,.hint,.card-heading p{color:var(--muted)}
+input,textarea,select{background:#f7f8fc!important;color:var(--text)!important;border-color:var(--line)!important}
+input::placeholder,textarea::placeholder{color:#8a93a5}
+.primary-btn{background:linear-gradient(110deg,#315cf5,#8863ed);color:#fff}
+.quiet-btn,.upload-btn,.add-row-btn{background:#f0f3ff;color:#315cf5;border-color:#d8def4}
+.simple-row{background:#f8f9fd;border-color:var(--line)}
+.remove-row-btn{background:#fff3f0;color:#c65345;border-color:#f2d2cc}
+.editor-nav a,.header-right a{color:#45516a}
+.publish-state{background:#eef3ff;color:#315cf5;border-color:#d9e2ff}
