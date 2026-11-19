@@ -1,7 +1,22 @@
-name = "badhon-editzx-youtube-stats"
+name = "badhon-editzx-cms"
 main = "worker.js"
 compatibility_date = "2026-11-18"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "badhon-editzx-cms"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "badhon-editzx-media"
+
 [vars]
 YOUTUBE_HANDLE = "@badhoneditzx"
-ALLOWED_ORIGIN = "https://badhoneditzx.com"
+ALLOWED_ORIGINS = "https://badhoneditzx.com,https://www.badhoneditzx.com"
+COOKIE_DOMAIN = ".badhoneditzx.com"
+
+[[routes]]
+pattern = "api.badhoneditzx.com"
+custom_domain = true
