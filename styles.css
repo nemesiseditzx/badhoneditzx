@@ -140,3 +140,39 @@ body{background:#080a12;color:#f7f7fb}
 .project-info .text-link:focus-visible,.video-card:focus-visible,.interest-card:focus-visible{outline-offset:5px}
 @media(max-width:700px){.main-nav a:after{bottom:5px;right:auto;width:34px}.skip-link{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.skip-link,.main-nav a:after{transition:none}}
+
+
+/* Drone profile — kept in the site's original visual language */
+.drone-section{padding:110px 0;background:#0b0d15;border-top:1px solid rgba(255,255,255,.08)}
+.drone-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:8%;align-items:center}
+.drone-copy h2{font:700 clamp(40px,5vw,68px)/1.02 var(--display);letter-spacing:-.055em;margin:20px 0}
+.drone-copy h2 span{color:var(--lime)}
+.drone-copy>p:not(.eyebrow){max-width:540px;color:var(--muted);font-size:15px;line-height:1.9}
+.drone-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.drone-tags span{border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:9px 13px;color:#d8d9e2;font:500 9px var(--mono);letter-spacing:.08em}
+.drone-visual{position:relative;min-height:360px;display:grid;place-items:center}
+.drone-radar{position:relative;width:min(340px,78vw);aspect-ratio:1;border:1px solid rgba(123,108,255,.32);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(123,108,255,.12),transparent 68%)}
+.radar-ring{position:absolute;inset:16%;border:1px solid rgba(123,108,255,.25);border-radius:50%}
+.ring-b{inset:32%;border-color:rgba(255,94,188,.22)}
+.radar-cross{position:absolute;color:rgba(66,232,255,.5);font-size:22px}
+.drone-silhouette{font-size:76px;color:var(--cyan);text-shadow:0 0 28px rgba(66,232,255,.22);animation:droneFloat 7s ease-in-out infinite}
+.radar-coordinate,.radar-status{position:absolute;font:500 8px var(--mono);letter-spacing:.14em;color:#aeb2c2}
+.radar-coordinate{top:15%;left:50%;transform:translateX(-50%)}
+.radar-status{bottom:15%;display:flex;align-items:center;gap:8px}
+.radar-status i{width:6px;height:6px;border-radius:50%;background:var(--lime)}
+.flight-stat{position:absolute;right:0;bottom:2%;display:flex;flex-direction:column;padding:17px 21px;background:#171a2d;border:1px solid rgba(66,232,255,.25);box-shadow:0 18px 45px #0006}
+.flight-stat strong{font:700 48px/1 var(--display);color:var(--lime)}
+.flight-stat span{margin-top:7px;font:500 8px var(--mono);letter-spacing:.12em;color:#c2c4cf}
+@keyframes droneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:760px){.drone-section{padding:82px 0}.drone-layout{grid-template-columns:1fr;gap:25px}.drone-visual{min-height:310px}.drone-radar{width:min(290px,78vw)}.flight-stat{right:0;bottom:0}.drone-copy h2{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.drone-silhouette{animation:none}}
+
+/* Simple editorial drone experience card */
+.drone-visual{min-height:300px;display:flex;align-items:center;justify-content:center}
+.flight-card{width:min(390px,100%);padding:38px;background:linear-gradient(145deg,#171a2d,#10121d);border:1px solid rgba(66,232,255,.2);border-radius:14px;box-shadow:0 22px 65px #0005}
+.flight-card-label,.flight-card-unit{display:block;font:600 9px var(--mono);letter-spacing:.16em;color:#aeb2c2}
+.flight-card strong{display:block;margin:20px 0 8px;font:700 clamp(72px,10vw,112px)/.9 var(--display);letter-spacing:-.08em;color:var(--lime)}
+.flight-card-rule{height:1px;margin:26px 0;background:linear-gradient(90deg,var(--blue),rgba(255,255,255,.08))}
+.flight-card p{max-width:240px;color:#c5c7d1;font-size:13px;line-height:1.8}
+.drone-tags span{border-radius:30px}
+@media(max-width:760px){.flight-card{padding:28px}.drone-visual{min-height:220px}}
