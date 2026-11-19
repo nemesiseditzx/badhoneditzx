@@ -1,5 +1,5 @@
 (() => {
-const $=s=>document.querySelector(s), $=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const db=window.supabase?.createClient(window.BADHON_SUPABASE_URL,window.BADHON_SUPABASE_PUBLISHABLE_KEY);
 let language='en';const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function setLanguage(next){language=next;document.documentElement.lang=next==='bn'?'bn':'en';document.body.classList.toggle('bn',next==='bn');$('[data-en][data-bn]').forEach(el=>{if(el.hasAttribute('data-cms'))return;if(el.dataset[next]!==undefined)el.innerHTML=el.dataset[next];});const b=$('#langSwitch');b.textContent=next==='en'?'বাংলা':'English';}
