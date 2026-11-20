@@ -422,3 +422,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .cms-skills{background:#111b33!important;border-color:rgba(130,158,255,.2)!important}.cms-skills .skill-chip{color:#eaf1ff!important;border-color:rgba(130,158,255,.25)!important}.cms-skills .skill-chip small{color:#80e9f4!important}
 @media(hover:hover){.interest-card:hover,.video-card:hover,.project-feature:hover,.cms-project-card:hover{border-color:rgba(39,216,232,.48)!important;box-shadow:0 24px 65px rgba(49,92,245,.22),0 0 26px rgba(39,216,232,.08)!important}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Featured showreel: separate full-bleed video directly below the portrait hero */
+.hero-image-frame #profilePortrait{opacity:1!important;mix-blend-mode:normal!important;z-index:3!important}
+.hero-image-frame .hero-intro-video{display:none!important}
+.showreel-section{position:relative;padding:clamp(48px,7vw,96px) 0;background:radial-gradient(ellipse at 50% 0%,rgba(76,125,255,.17),transparent 55%),#080d1b!important;overflow:hidden}
+.showreel-heading{margin:0 auto 28px;position:relative;z-index:1}
+.showreel-heading .eyebrow{color:#75dff2;letter-spacing:.18em;font-size:.75rem;font-weight:800}
+.showreel-heading h2{margin:12px 0 0;color:#f2f6ff;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.055em}
+.showreel-heading h2 span{background:linear-gradient(90deg,#78a5ff,#b18aff,#5ce5e1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.showreel-frame{position:relative;width:100%;min-height:clamp(260px,58vw,780px);background:#030713;border-top:1px solid rgba(130,158,255,.25);border-bottom:1px solid rgba(130,158,255,.25);box-shadow:0 24px 90px rgba(0,0,0,.38)}
+.showreel-frame video{display:block;width:100%;height:clamp(260px,58vw,780px);object-fit:contain;background:#030713}
+.showreel-frame video[hidden]{display:none}
+.showreel-empty{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:#9aabd0;font-size:1rem;background:radial-gradient(ellipse at center,rgba(76,125,255,.13),transparent 60%),#080d1b}
+.showreel-empty[hidden]{display:none}
+@media(max-width:640px){.showreel-section{padding:44px 0}.showreel-heading{padding-inline:22px}.showreel-frame,.showreel-frame video{min-height:250px;height:58vw}}
