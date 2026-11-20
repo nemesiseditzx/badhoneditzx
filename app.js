@@ -18,8 +18,8 @@ $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 $$('.main-nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}));
-if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});$('.reveal').forEach(el=>observer.observe(el));}else{$('.reveal').forEach(el=>el.classList.add('visible'));}
-if(!reduced){$('.hero-copy > *').forEach((el,i)=>{el.classList.add('hero-stagger');el.style.setProperty('--enter-order',i);});const portrait=$('#profilePortrait');if(portrait)portrait.classList.add('portrait-enter');}
+if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});$$('.reveal').forEach(el=>observer.observe(el));}else{$$('.reveal').forEach(el=>el.classList.add('visible'));}
+if(!reduced){$$('.hero-copy > *').forEach((el,i)=>{el.classList.add('hero-stagger');el.style.setProperty('--enter-order',i);});const portrait=$('#profilePortrait');if(portrait)portrait.classList.add('portrait-enter');}
 const progress=$('#scrollProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?scrollY/max*100:0)+'%';}addEventListener('scroll',updateProgress,{passive:true});updateProgress();$('#yearNow').textContent=new Date().getFullYear();
 const subscriber=$('#subscriberCount');if(subscriber&&subscriber.textContent.trim()==='933')subscriber.textContent='—';
 const statsStatus=$('#statsStatus');if(statsStatus)statsStatus.lastElementChild.textContent='Live YouTube API not connected';
