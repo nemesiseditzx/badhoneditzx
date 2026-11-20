@@ -197,3 +197,19 @@ body{background:#fbfaf7!important;color:#172033!important}
 @media(min-width:1500px){.hero{min-height:calc(100svh - 82px)}.hero-copy{max-width:720px}.hero h1{font-size:clamp(90px,8vw,150px)}}
 @media(max-width:900px){.hero{min-height:auto;grid-template-columns:1fr;gap:28px;padding-block:50px 70px}.hero-art{grid-row:1;height:auto!important;min-height:0!important}.hero-image-frame{height:min(72vw,560px)!important;width:min(100%,560px)!important;margin-inline:auto}.hero-copy{grid-row:2}.section-wrap{width:calc(100% - 36px)!important}}
 @media(max-width:520px){.hero{padding-top:34px}.hero-image-frame{height:112vw!important;max-height:480px!important}.hero h1{font-size:clamp(54px,15vw,84px)!important}.social-bar{width:calc(100% - 36px)!important}.site-header{height:70px}}
+
+/* Additional light surfaces and accessible focus states */
+.intro-strip{background:linear-gradient(90deg,#eef2ff,#f8f5ff,#fff2ed)!important;border-color:rgba(23,32,51,.1)!important;color:#27334c!important}
+.intro-strip p{color:#27334c!important}.intro-strip em,.intro-strip>span{color:#315cf5!important}
+.sports-band{background:linear-gradient(110deg,#edf2ff,#f7f3ff 58%,#fff0eb)!important;border-color:rgba(23,32,51,.1)!important;color:#172033!important}
+.sports-band:after{border-color:rgba(49,92,245,.12)!important;box-shadow:0 0 0 40px rgba(49,92,245,.025),0 0 0 80px rgba(49,92,245,.02)!important}
+.sports-list>div{border-color:rgba(23,32,51,.12)!important}.sports-list>div>span{color:#748098!important}.sports-list b{color:#27334c!important}
+.stats-panel{background:#fff!important;border-color:rgba(23,32,51,.12)!important;box-shadow:0 14px 42px rgba(23,32,51,.06)!important}
+.stats-copy p,.stats-status{color:#68738a!important}.stat strong{color:#172033!important}.stat span{color:#68738a!important}.stat{border-color:rgba(23,32,51,.12)!important}
+.cms-project-card{background:#fff!important;color:#172033!important;border-color:rgba(23,32,51,.12)!important;box-shadow:0 14px 42px rgba(23,32,51,.06)!important}
+.cms-project-card h3{color:#172033!important}.cms-project-card p{color:#68738a!important}.cms-project-card .project-type,.cms-project-card a{color:#315cf5!important}
+.cms-skills{background:#fff!important;border-color:rgba(23,32,51,.12)!important}.cms-skills .skill-chip{color:#27334c!important;border-color:rgba(23,32,51,.15)!important}.cms-skills .skill-chip small{color:#315cf5!important}
+.drone-stat{background:#fff!important;border-color:rgba(23,32,51,.12)!important}.drone-stat strong{color:#315cf5!important}.drone-stat span{color:#68738a!important}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(49,92,245,.38)!important;outline-offset:3px}
+.contact-dialog-social-links{display:flex;flex-wrap:wrap;gap:9px}
+@media(max-width:700px){.social-bar{padding-block:14px!important}.social-bar-links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.social-bar-links a{justify-content:flex-start}.hero{display:grid!important;grid-template-columns:1fr!important}.hero-art{order:0!important}.hero-copy{order:1!important}}
