@@ -15,7 +15,7 @@ $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 $$('.main-nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}));
-if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});$$('.reveal').forEach(el=>observer.observe(el));}
+if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});$('.reveal').forEach(el=>observer.observe(el));}else{$('.reveal').forEach(el=>el.classList.add('visible'));}
 const progress=$('#scrollProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?scrollY/max*100:0)+'%';}addEventListener('scroll',updateProgress,{passive:true});updateProgress();$('#yearNow').textContent=new Date().getFullYear();
 const safeUrl=value=>{try{const u=new URL(value,location.href);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}};
 function applyText(selector,value){const el=$(selector);if(el&&value!=null)el.textContent=textValue(value);}
