@@ -11,7 +11,7 @@ let contactEmail='bdnemesisgaming@gmail.com';
 $$('[data-open-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.showModal()));
 $$('[data-close-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.close()));
 contactDialog?.addEventListener('click',event=>{if(event.target===contactDialog)contactDialog.close();});
-$('#contactForm')?.addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const data=new FormData(form);const subject=encodeURIComponent(String(data.get('topic')||'Portfolio inquiry'));const body=encodeURIComponent('Name: '+String(data.get('name')||'')+'\n\n'+String(data.get('message')||''));location.href='mailto:bdnemesisgaming@gmail.com?subject='+subject+'&body='+body;});
+$('#contactForm')?.addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const data=new FormData(form);const subject=encodeURIComponent(String(data.get('topic')||'Portfolio inquiry'));const body=encodeURIComponent('Name: '+String(data.get('name')||'')+'\n\n'+String(data.get('message')||''));location.href='mailto:'+encodeURIComponent(contactEmail)+'?subject='+subject+'&body='+body;});
 $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':'en'));
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
