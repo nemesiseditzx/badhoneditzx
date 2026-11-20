@@ -213,3 +213,6 @@ body{background:#fbfaf7!important;color:#172033!important}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(49,92,245,.38)!important;outline-offset:3px}
 .contact-dialog-social-links{display:flex;flex-wrap:wrap;gap:9px}
 @media(max-width:700px){.social-bar{padding-block:14px!important}.social-bar-links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.social-bar-links a{justify-content:flex-start}.hero{display:grid!important;grid-template-columns:1fr!important}.hero-art{order:0!important}.hero-copy{order:1!important}}
+
+/* Progressive enhancement: content must remain visible if JavaScript fails. */
+.reveal:not(.visible){opacity:1;transform:none}
