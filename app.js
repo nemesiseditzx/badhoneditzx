@@ -24,6 +24,16 @@ const progress=$('#scrollProgress');function updateProgress(){const max=document
 const subscriber=$('#subscriberCount');if(subscriber&&subscriber.textContent.trim()==='933')subscriber.textContent='—';
 const statsStatus=$('#statsStatus');if(statsStatus)statsStatus.lastElementChild.textContent='Live YouTube API not connected';
 const safeUrl=value=>{try{const u=new URL(value,location.href);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}};
+const portraitImage=$('#profilePortrait');
+if(portraitImage){
+ const fallbackSource=portraitImage.getAttribute('src')||'';
+ if(fallbackSource.startsWith('data:image/'))portraitImage.dataset.fallbackSrc=fallbackSource;
+ portraitImage.addEventListener('load',()=>{portraitImage.dataset.portraitReady='true';});
+ portraitImage.addEventListener('error',()=>{
+  const fallback=portraitImage.dataset.fallbackSrc||'';
+  if(fallback&&portraitImage.src!==fallback){portraitImage.src=fallback;portraitImage.dataset.portraitReady='true';}
+ });
+}
 function applyText(selector,value){const el=$(selector);if(el&&value!=null)el.textContent=textValue(value);}
 function renderProjects(items){const host=$('#projectsGrid');if(!host)return;host.replaceChildren();(Array.isArray(items)?items:[]).filter(x=>x.title).forEach((item,i)=>{const card=document.createElement('article');card.className='cms-project-card reveal visible';const image=safeUrl(item.image);if(image){const img=document.createElement('img');img.src=image;img.alt=item.title+' project preview';img.loading='lazy';card.append(img);}const type=document.createElement('span');type.className='project-type';type.textContent=item.category||'SELECTED PROJECT';const title=document.createElement('h3');title.textContent=item.title;const desc=document.createElement('p');desc.textContent=textValue(item.description);card.append(type,title,desc);const url=safeUrl(item.url);if(url){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='VIEW PROJECT ↗';card.append(link);}host.append(card);});}
 function renderVideos(items){const host=$('#videoGrid');if(!host||!Array.isArray(items)||!items.length)return;host.replaceChildren();items.forEach((item,i)=>{const url=safeUrl(item.url);if(!url)return;let id='';try{const u=new URL(url);id=u.hostname.includes('youtu.be')?u.pathname.slice(1):u.searchParams.get('v')||u.pathname.match(/\/embed\/([^/]+)/)?.[1]||'';}catch{}const a=document.createElement('a');a.className='video-card reveal visible';a.href=url;a.target='_blank';a.rel='noopener noreferrer';const thumb=document.createElement('div');thumb.className='video-thumb';if(id){const img=document.createElement('img');img.src='https://i.ytimg.com/vi/'+encodeURIComponent(id)+'/hqdefault.jpg';img.alt=(item.label||'Video')+' thumbnail';img.loading='lazy';thumb.append(img);}const play=document.createElement('span');play.textContent='▶';thumb.append(play);const meta=document.createElement('div');meta.className='video-meta';const label=document.createElement('span');label.textContent=(item.label||'CREATIVE WORK '+String(i+1).padStart(2,'0')).toUpperCase();const watch=document.createElement('b');watch.textContent='Watch ↗';meta.append(label,watch);a.append(thumb,meta);host.append(a);});}
@@ -41,8 +51,8 @@ if(d.projectTitle){const title=$('.project-info h3');if(title)title.textContent=
 if(d.projectUrl){const link=$('.project-visual');const url=safeUrl(d.projectUrl);if(link&&url)link.href=url;}
 if(d.projectDescription){const p=$('.project-info p');if(p)p.textContent=textValue(d.projectDescription);}
 if(d.droneIntro){const e=$('#droneIntroText');if(e)e.textContent=textValue(d.droneIntro);}
-if(d.droneHours){const e=$('#droneHoursText');if(e)e.textContent=d.droneHours;}
-if(d.droneModel){const e=$('#droneModelText');if(e)e.textContent=d.droneModel;}
+
+
 if(d.droneDetails){const e=$('#droneDetailsText');if(e)e.textContent=textValue(d.droneDetails);}
 if(Array.isArray(d.droneSkills)){const host=$('#droneSkillsGrid');if(host){host.replaceChildren();d.droneSkills.filter(x=>x.name).forEach((item,i)=>{const card=document.createElement('article');card.className='drone-skill reveal visible';card.style.setProperty('--card-index',i);const title=document.createElement('strong');title.textContent=item.name;const detail=document.createElement('p');detail.textContent=textValue(item.description);card.append(title,detail);host.append(card);});}}
 if(d.introQuote){const e=$('.intro-strip p');if(e)e.textContent=textValue(d.introQuote);}
