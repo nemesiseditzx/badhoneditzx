@@ -7,15 +7,15 @@ let language='en',content={};
 const textValue=v=>typeof v==='object'&&v!==null?(v[language]??v.en??''):v??'';
 function setLanguage(next){language=next==='bn'?'bn':'en';document.documentElement.lang=language;document.body.classList.toggle('bn',language==='bn');$$('[data-en][data-bn]').forEach(el=>{const value=el.dataset[language];if(value!==undefined)el.innerHTML=value;});const b=$('#langSwitch');if(b){b.textContent=language==='en'?'বাংলা':'English';b.setAttribute('aria-label',language==='en'?'Switch to Bangla':'Switch to English');}applyContent(content);}
 const contactDialog=$('#contactDialog');
-$('[data-open-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.showModal()));
-$('[data-close-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.close()));
+$$('[data-open-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.showModal()));
+$$('[data-close-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.close()));
 contactDialog?.addEventListener('click',event=>{if(event.target===contactDialog)contactDialog.close();});
 $('#contactForm')?.addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const data=new FormData(form);const subject=encodeURIComponent(String(data.get('topic')||'Portfolio inquiry'));const body=encodeURIComponent('Name: '+String(data.get('name')||'')+'\n\n'+String(data.get('message')||''));location.href='mailto:bdnemesisgaming@gmail.com?subject='+subject+'&body='+body;});
 $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':'en'));
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 $$('.main-nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}));
-if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});$('.reveal').forEach(el=>observer.observe(el));}else{$('.reveal').forEach(el=>el.classList.add('visible'));}
+if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});$$('.reveal').forEach(el=>observer.observe(el));}else{$$('.reveal').forEach(el=>el.classList.add('visible'));}
 const progress=$('#scrollProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?scrollY/max*100:0)+'%';}addEventListener('scroll',updateProgress,{passive:true});updateProgress();$('#yearNow').textContent=new Date().getFullYear();
 const safeUrl=value=>{try{const u=new URL(value,location.href);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}};
 function applyText(selector,value){const el=$(selector);if(el&&value!=null)el.textContent=textValue(value);}
