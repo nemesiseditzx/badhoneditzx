@@ -216,3 +216,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 
 /* Progressive enhancement: content must remain visible if JavaScript fails. */
 .reveal:not(.visible){opacity:1;transform:none}
+
+
+/* Motion pass: cinematic but lightweight, with reduced-motion support */
+.hero{isolation:isolate}
+.hero-grid-glow{animation:ambientGlow 9s ease-in-out infinite alternate;transform-origin:center}
+.hero-image-frame{animation:heroFrameFloat 7s ease-in-out infinite;will-change:transform}
+#profilePortrait[data-portrait-ready="true"]{opacity:1!important;animation:portraitDrift 12s ease-in-out infinite alternate!important;will-change:transform}
+.orbit-one{animation:orbitSpin 34s linear infinite}
+.orbit-two{animation:orbitSpin 48s linear infinite reverse}
+.live-dot{animation:livePulse 2s ease-in-out infinite}
+.hero-kicker,.eyebrow{animation:softEnter .8s both}
+.hero-copy .hero-role{animation:softEnter .8s .15s both}
+.hero-description{animation:softEnter .8s .25s both}
+.hero-buttons{animation:softEnter .8s .35s both}
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary:after{content:"";position:absolute;inset:-40% auto -40% -55%;width:35%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);animation:buttonShine 5s ease-in-out infinite}
+.social-bar-links a,.interest-card,.project-feature,.video-card,.cms-project-card,.stats-panel{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.social-bar-links a:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(49,92,245,.12)}
+.interest-card:hover,.project-feature:hover,.video-card:hover,.cms-project-card:hover{transform:translateY(-7px);box-shadow:0 22px 55px rgba(36,49,89,.12)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay{transition-delay:.16s}
+@keyframes ambientGlow{from{opacity:.55;transform:scale(.92)}to{opacity:1;transform:scale(1.08)}}
+@keyframes heroFrameFloat{0%,100%{transform:translateY(0) rotate(-.3deg)}50%{transform:translateY(-12px) rotate(.3deg)}}
+@keyframes portraitDrift{from{transform:scale(1.015) translateY(0)}to{transform:scale(1.07) translateY(-5px)}}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(19,166,160,.25)}50%{box-shadow:0 0 0 7px rgba(19,166,160,0)}}
+@keyframes softEnter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes buttonShine{0%,65%{left:-55%}100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.hero-grid-glow,.hero-image-frame,#profilePortrait,.orbit-one,.orbit-two,.live-dot,.hero-kicker,.hero-role,.hero-description,.hero-buttons,.btn-primary:after{animation:none!important}.reveal,.reveal.visible{opacity:1!important;transform:none!important;transition:none!important}}
