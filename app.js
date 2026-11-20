@@ -2,6 +2,8 @@
 'use strict';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function runOpeningSequence(){if(reduced||document.querySelector('.opening-screen'))return;const screen=document.createElement('div');screen.className='opening-screen';screen.setAttribute('aria-label','Welcome');screen.innerHTML='<div class="opening-mark">BDX<span>.</span></div><div class="opening-caption">CREATIVE PORTFOLIO <span> / 2026</span></div><div class="opening-track"><i></i></div>';document.body.append(screen);document.body.classList.add('is-opening');requestAnimationFrame(()=>screen.classList.add('opening-active'));const finish=()=>{screen.classList.add('opening-exit');document.body.classList.remove('is-opening');document.body.classList.add('opening-complete');setTimeout(()=>screen.remove(),850);};setTimeout(finish,1850);}
+runOpeningSequence();
 const db=window.supabase&&window.BADHON_SUPABASE_URL&&window.BADHON_SUPABASE_PUBLISHABLE_KEY?window.supabase.createClient(window.BADHON_SUPABASE_URL,window.BADHON_SUPABASE_PUBLISHABLE_KEY):null;
 let language='en',content={};
 const textValue=v=>typeof v==='object'&&v!==null?(v[language]??v.en??''):v??'';
@@ -16,7 +18,8 @@ $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 $$('.main-nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}));
-if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});$$('.reveal').forEach(el=>observer.observe(el));}else{$$('.reveal').forEach(el=>el.classList.add('visible'));}
+if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});$('.reveal').forEach(el=>observer.observe(el));}else{$('.reveal').forEach(el=>el.classList.add('visible'));}
+if(!reduced){$('.hero-copy > *').forEach((el,i)=>{el.classList.add('hero-stagger');el.style.setProperty('--enter-order',i);});const portrait=$('#profilePortrait');if(portrait)portrait.classList.add('portrait-enter');}
 const progress=$('#scrollProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?scrollY/max*100:0)+'%';}addEventListener('scroll',updateProgress,{passive:true});updateProgress();$('#yearNow').textContent=new Date().getFullYear();
 const subscriber=$('#subscriberCount');if(subscriber&&subscriber.textContent.trim()==='933')subscriber.textContent='—';
 const statsStatus=$('#statsStatus');if(statsStatus)statsStatus.lastElementChild.textContent='Live YouTube API not connected';
