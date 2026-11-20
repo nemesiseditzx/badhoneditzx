@@ -130,10 +130,13 @@
 <p class="eyebrow">LET'S CONNECT</p>
 <h2 id="contactDialogTitle" data-en="What would you like to talk about?" data-bn="আপনি কী বিষয়ে কথা বলতে চান?">What would you like to talk about?</h2>
 <p class="contact-dialog-intro" data-en="Send me a message or reach me through one of my social pages." data-bn="মেসেজ পাঠান অথবা আমার সোশ্যাল পেজে যোগাযোগ করুন।">Send me a message or reach me through one of my social pages.</p>
-<form id="contactForm" class="contact-form">
-<label for="contactTopic">Topic</label><select id="contactTopic" name="topic" required><option>Project inquiry</option><option>Video editing</option><option>Business collaboration</option><option>General message</option></select>
-<label for="contactName">Your name</label><input id="contactName" name="name" autocomplete="name" placeholder="Your name" required>
-<label for="contactMessage">Your message</label><textarea id="contactMessage" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+<form id="contactForm" class="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="contact">
+<p class="contact-honeypot" hidden><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label for="contactTopic">Topic</label><select id="contactTopic" name="topic" required><option value="Project inquiry">Project inquiry</option><option value="Video editing">Video editing</option><option value="Business collaboration">Business collaboration</option><option value="General message">General message</option></select>
+<label for="contactName">Your name</label><input id="contactName" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Your name" required>
+<label for="contactMessage">Your message</label><textarea id="contactMessage" name="message" rows="4" minlength="5" maxlength="5000" placeholder="Write your message here..." required></textarea>
+<p class="contact-status" id="contactStatus" role="status" aria-live="polite" hidden></p>
 <button class="btn btn-primary contact-send" type="submit">Send message ↗</button>
 </form>
 <div class="contact-dialog-socials"><span>OR FIND ME HERE</span><div class="contact-dialog-social-links">
