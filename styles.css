@@ -582,3 +582,27 @@ main{width:100%;max-width:none}
 
 /* Keep the portrait still and naturally framed; do not fake image detail. */
 .hero-image-frame{animation:none!important;transform:none!important}
+
+
+/* ===== SCROLL-TO-SHRINK PORTRAIT =====
+   The hero portrait scales down and fades as the visitor scrolls away.
+   Reverses naturally when scrolling back to the top. */
+.hero-image-frame{
+  animation: portraitScrollAway linear both!important;
+  animation-timeline: scroll(root block);
+  animation-range: 0px 560px;
+  transform-origin: 50% 48%;
+  will-change: transform, opacity;
+}
+@keyframes portraitScrollAway{
+  0%{transform:scale(1);opacity:1;filter:blur(0)}
+  72%{transform:scale(.28);opacity:.35;filter:blur(1px)}
+  100%{transform:scale(.035);opacity:0;filter:blur(3px)}
+}
+/* Prepare the portrait stage for a real transparent PNG/WebP cutout. */
+.hero-image-frame{background:transparent!important;box-shadow:none!important;overflow:visible!important;border-radius:0!important}
+.hero-image-frame:after{display:none!important}
+#profilePortrait{object-fit:contain!important;object-position:center bottom!important}
+@media(prefers-reduced-motion:reduce){
+ .hero-image-frame{animation:none!important;transform:none!important;opacity:1!important;filter:none!important}
+}
