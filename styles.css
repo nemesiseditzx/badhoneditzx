@@ -699,8 +699,8 @@ body{background-image:radial-gradient(ellipse at 12% 8%,rgba(72,201,197,.075),tr
 @supports (animation-timeline:scroll()){
  @media(prefers-reduced-motion:no-preference){
   .hero-image-frame{
-   animation:portraitScrollAway linear both;
-   animation-timeline:scroll(root block);
+   animation:portraitScrollAway linear both!important;
+   animation-timeline:scroll(root block)!important;
    animation-range:0px 620px;
    transform-origin:50% 48%;
    will-change:transform,opacity;
