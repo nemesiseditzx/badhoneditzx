@@ -487,3 +487,47 @@ body.is-opening{overflow:hidden}
 @media(hover:hover){.interest-card:hover,.video-card:hover,.project-feature:hover,.drone-stat:hover{transform:translateY(-7px) scale(1.012);box-shadow:0 20px 50px rgba(49,92,245,.17)}.timeline-item:hover{transform:translateX(7px)}}
 .section-label{animation:softEnter .7s both}
 @media(prefers-reduced-motion:reduce){.opening-screen{display:none!important}.hero-stagger,.portrait-enter,.hero-grid-glow,.hero-buttons .btn:after,.section-label{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}.reveal:not(.visible){opacity:1!important;transform:none!important}}
+
+
+/* ===== BEX CINEMATIC SYSTEM-WIDE MOTION PASS ===== */
+.opening-screen{position:fixed;inset:0;z-index:1000;display:grid;place-content:center;justify-items:center;gap:24px;background:radial-gradient(ellipse at 50% 42%,#f0f3ff 0%,#fffdf9 48%,#f8f5ef 100%);color:#172033;opacity:1;visibility:visible;transition:opacity .72s ease,visibility .72s ease}
+.opening-brand{display:flex;align-items:center;gap:18px;opacity:0;transform:translateY(18px) scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.opening-brand img{width:clamp(62px,9vw,92px);height:clamp(62px,9vw,92px);border-radius:24px;object-fit:cover;border:1px solid rgba(49,92,245,.2);box-shadow:0 18px 55px rgba(49,92,245,.18);animation:bexLogoBreath 2.2s ease-in-out infinite}
+.opening-mark{font:800 clamp(58px,10vw,100px)/.9 'Space Grotesk',sans-serif;letter-spacing:-.09em;color:#172033}
+.opening-mark span{color:#315cf5}
+.opening-caption{font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.24em;color:#657087;opacity:0;transform:translateY(10px);transition:opacity .55s .2s ease,transform .55s .2s ease}
+.opening-caption span{color:#315cf5}
+.opening-track{width:min(220px,52vw);height:2px;background:rgba(49,92,245,.12);overflow:hidden;border-radius:9px;opacity:0;transition:opacity .4s .3s}
+.opening-track i{display:block;width:42%;height:100%;background:linear-gradient(90deg,#315cf5,#00a99a,#8764e8);transform:translateX(-120%);transition:transform 1.35s .35s cubic-bezier(.7,0,.2,1)}
+.opening-active .opening-brand{opacity:1;transform:translateY(0) scale(1)}
+.opening-active .opening-caption{opacity:1;transform:translateY(0)}
+.opening-active .opening-track{opacity:1}
+.opening-active .opening-track i{transform:translateX(260%)}
+.opening-exit{opacity:0;visibility:hidden;pointer-events:none}
+body.is-opening{overflow:hidden}
+@keyframes bexLogoBreath{0%,100%{transform:translateY(0);box-shadow:0 18px 55px rgba(49,92,245,.15)}50%{transform:translateY(-5px);box-shadow:0 24px 65px rgba(49,92,245,.25)}}
+.site-header{transition:box-shadow .35s ease,background .35s ease}
+.main-nav a{position:relative}
+.main-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:2px;background:linear-gradient(90deg,#315cf5,#00a99a);transition:right .3s ease}
+.main-nav a:hover:after,.main-nav a:focus-visible:after{right:0}
+.brand img{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.brand:hover img{transform:rotate(-8deg) scale(1.08);box-shadow:0 8px 22px rgba(49,92,245,.2)}
+.section-label,.section-heading-row h2,.about-heading h2,.journey-head h2,.contact-content h2{animation:headingRise .8s both}
+@keyframes headingRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.interest-card,.cms-project-card,.video-card,.skill-chip,.drone-skill,.timeline-item,.drone-stat{transform:translateZ(0);backface-visibility:hidden}
+.interest-card:hover,.cms-project-card:hover,.video-card:hover,.skill-chip:hover,.drone-skill:hover,.drone-stat:hover{transform:translateY(-7px) scale(1.012);box-shadow:0 22px 48px rgba(49,92,245,.11)}
+.skill-chip,.drone-skill{transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s,border-color .32s}
+.skill-chip[style*="--card-index"],.drone-skill[style*="--card-index"]{animation:cardPop .65s both;animation-delay:calc(var(--card-index,0)*65ms)}
+@keyframes cardPop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-image-frame{transform-origin:50% 60%}
+.hero-art .floating-tag{animation:tagHover 5s ease-in-out infinite}
+.hero-art .tag-bottom{animation-delay:-2.4s}
+@keyframes tagHover{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.btn,.header-cta,.lang-switch,.contact-dialog-close{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease}
+.btn:active,.header-cta:active,.lang-switch:active{transform:scale(.97)}
+.social-bar-links a,.social-links a,.contact-dialog-social-links a{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.social-bar-links a:hover,.social-links a:hover,.contact-dialog-social-links a:hover{transform:translateY(-3px)}
+.contact-dialog[open]{animation:dialogIn .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes dialogIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.scroll-progress{transform-origin:left center;box-shadow:0 0 12px rgba(49,92,245,.22)}
+@media(prefers-reduced-motion:reduce){.opening-screen,.opening-brand,.opening-caption,.opening-track,.opening-track i,.opening-brand img,.site-header,.main-nav a:after,.brand img,.section-label,.section-heading-row h2,.about-heading h2,.journey-head h2,.contact-content h2,.interest-card,.cms-project-card,.video-card,.skill-chip,.drone-skill,.timeline-item,.drone-stat,.hero-art .floating-tag,.btn,.header-cta,.lang-switch,.contact-dialog-close,.contact-dialog[open],.social-bar-links a,.social-links a,.contact-dialog-social-links a{animation:none!important;transition:none!important}.opening-screen{display:none!important}}
