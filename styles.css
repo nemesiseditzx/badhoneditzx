@@ -719,3 +719,8 @@ body{background-image:radial-gradient(ellipse at 12% 8%,rgba(72,201,197,.075),tr
 .cycling-story{border:1px solid rgba(72,201,197,.22)!important}
 .cycling-story-kicker,.cycling-story-note{color:var(--cyan)!important}
 .drone-profile .drone-stat strong{color:var(--cyan)!important}
+
+/* Contact form submission feedback */
+.contact-status{margin:8px 0 0;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.55;background:#eef5ff;color:#234a9a;border:1px solid #cbdcff}
+.contact-status[data-state="error"]{background:#fff1f0;color:#a3261b;border-color:#ffd0cc}
+.contact-send:disabled{opacity:.65;cursor:wait}

@@ -32,3 +32,19 @@ The Admin Studio manages the brand and owner identity, bilingual hero copy, intr
 ## Important
 
 The Supabase project must remain active and within its plan quota for login, publishing and media uploads to work. Public site HTML can still load when the CMS is unavailable, but dynamic content will fall back to the built-in page content and the browser console will show the CMS error.
+
+## Security baseline
+
+- Netlify sends browser security headers on every route, including the Admin Studio: Content Security Policy, HSTS, clickjacking protection, MIME sniffing protection, referrer policy and a restrictive Permissions Policy.
+- Dynamic CMS links and media URLs must use HTTPS. CMS owner-name rendering uses DOM text nodes rather than injecting database content as HTML.
+- `public.site_content` has RLS enabled. Public visitors receive SELECT only (the RLS policy exposes only the published row); authenticated sessions receive SELECT and UPDATE grants, while RLS permits UPDATE only when the JWT contains the protected `app_metadata.role = admin` claim. INSERT and DELETE grants are revoked from browser roles.
+- Storage remains a public-read bucket for published portfolio media. Upload, update and delete are restricted by Storage RLS policies to authenticated admin JWTs. Public media URLs are not private or secret.
+- Re-run the Supabase Security Advisor after schema or policy changes. Enable Leaked Password Protection and enforce MFA for the owner/admin account in Supabase Auth settings; these are project authentication controls and are not enabled by a frontend code change.
+- Keep GitHub, Netlify and Supabase owner accounts protected with unique passwords and MFA. Never commit service-role keys, database passwords or access tokens.
+- The exact least-privilege grants are documented in `security-hardening.sql`.
+
+### Contact form delivery
+
+- The portfolio contact form posts to Netlify Forms instead of relying on a visitor's local `mailto:` application.
+- Includes a honeypot field, required-field validation, message length limits, disabled/loading state, and visible success/error feedback.
+- Form submissions are collected in the Netlify site's Forms inbox. Configure an email notification to `bdnemesisgaming@gmail.com` in Netlify Forms → Notifications if you want every submission delivered to the mailbox.
