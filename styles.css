@@ -123,3 +123,18 @@ body{background:var(--bg);color:var(--text)}
 @media(max-width:1050px){.section-wrap,.hero{width:calc(100% - 64px)}.site-header{padding-inline:32px}.hero{grid-template-columns:1fr 1fr;gap:24px}.hero h1{font-size:clamp(68px,8vw,104px)}.hero-art{height:520px}.hero-image-frame{height:480px;min-height:0}}
 @media(max-width:760px){.section-wrap,.hero{width:calc(100% - 36px)}.site-header{padding-inline:18px}.hero{min-height:auto;grid-template-columns:1fr;padding:55px 0 80px}.hero-copy{padding:0}.hero h1{font-size:clamp(62px,15vw,100px)}.hero-art{height:430px;grid-row:1}.hero-image-frame{height:410px;width:min(100%,520px)}.hero-monogram{font-size:250px}.hero-bottomline{bottom:18px}.section{padding:78px 0}.about-layout{grid-template-columns:1fr;gap:32px}.universe-grid{grid-template-columns:1fr 1fr}.project-feature{grid-template-columns:1fr;gap:25px}.stats-panel{grid-template-columns:1fr;padding:28px}.sports-inner{grid-template-columns:1fr;gap:28px}.contact-content h2{font-size:clamp(48px,12vw,78px)}}
 @media(max-width:430px){.universe-grid,.video-grid{grid-template-columns:1fr}.hero-art{height:350px}.hero-image-frame{height:330px}.hero h1{font-size:58px}.hero-buttons{flex-wrap:wrap}.hero-socials{gap:8px}.hero-bottomline{font-size:8px}}
+
+/* SOCIAL MEDIA BAR — ABOVE THE PORTFOLIO HERO */
+.social-bar{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:22px 0 18px;border-bottom:1px solid rgba(23,28,45,.1)}
+.social-bar-label{font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.17em;color:#657087;white-space:nowrap}
+.social-bar-links{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+.social-bar-links a{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border:1px solid rgba(23,28,45,.12);border-radius:999px;background:#fff;color:#20283b;font-size:12px;font-weight:700;transition:transform .2s,border-color .2s,box-shadow .2s}
+.social-bar-links a:hover{transform:translateY(-3px);border-color:#315cf5;box-shadow:0 8px 22px rgba(49,92,245,.1)}
+.social-bar-links a b{font-size:11px;color:#315cf5}
+.social-icon{width:22px;height:22px;display:grid;place-items:center;color:#315cf5}
+.social-icon svg{width:19px;height:19px;display:block;fill:currentColor}
+.social-icon[data-social-icon="instagram"] svg{fill:none;stroke:currentColor;stroke-width:1.8}
+.social-icon[data-social-icon="instagram"] .social-dot{fill:currentColor;stroke:none}
+.social-icon[data-social-icon="tiktok"] svg{fill:currentColor}
+@media(max-width:760px){.social-bar{align-items:flex-start;flex-direction:column;gap:12px;padding:16px 0}.social-bar-links{justify-content:flex-start;gap:8px}.social-bar-links a{padding:8px 10px;font-size:11px}}
+@media(max-width:430px){.social-bar-links{display:grid;grid-template-columns:1fr 1fr;width:100%}.social-bar-links a{justify-content:flex-start}}
