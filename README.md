@@ -42,3 +42,9 @@ The Supabase project must remain active and within its plan quota for login, pub
 - Re-run the Supabase Security Advisor after schema or policy changes. Enable Leaked Password Protection and enforce MFA for the owner/admin account in Supabase Auth settings; these are project authentication controls and are not enabled by a frontend code change.
 - Keep GitHub, Netlify and Supabase owner accounts protected with unique passwords and MFA. Never commit service-role keys, database passwords or access tokens.
 - The exact least-privilege grants are documented in `security-hardening.sql`.
+
+### Contact form delivery
+
+- The portfolio contact form posts to Netlify Forms instead of relying on a visitor's local `mailto:` application.
+- Includes a honeypot field, required-field validation, message length limits, disabled/loading state, and visible success/error feedback.
+- Form submissions are collected in the Netlify site's Forms inbox. Configure an email notification to `bdnemesisgaming@gmail.com` in Netlify Forms → Notifications if you want every submission delivered to the mailbox.
