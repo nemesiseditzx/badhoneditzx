@@ -435,3 +435,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero-image-frame #profilePortrait{opacity:1!important;mix-blend-mode:normal!important;z-index:3!important}
 .hero-image-frame .hero-intro-video{display:none!important}
 @media(prefers-reduced-motion:reduce){.hero-background-video{display:none!important}}
+
+
+/* Motion polish and CMS-editable skill / aerial profile cards */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.hero-copy.reveal.visible{animation:heroCopyIn .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroCopyIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orbitDrift{0%,100%{transform:rotate(-24deg) translateY(0)}50%{transform:rotate(-20deg) translateY(-10px)}}
+.orbit-one{animation:orbitDrift 12s ease-in-out infinite}
+.orbit-two{animation:orbitDrift 15s ease-in-out infinite reverse}
+.cms-skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.cms-skills .skill-chip{display:flex;flex-direction:column;gap:8px;min-height:110px;padding:18px;border:1px solid rgba(130,158,255,.25);border-radius:12px;background:linear-gradient(145deg,rgba(78,140,255,.09),rgba(166,107,255,.06));transition:transform .3s,border-color .3s,box-shadow .3s;animation:cardRise .65s both;animation-delay:calc(var(--card-index,0)*70ms)}
+.cms-skills .skill-chip:hover,.drone-skill:hover{transform:translateY(-5px);border-color:var(--cyan);box-shadow:0 16px 36px rgba(49,92,245,.16)}
+.cms-skills .skill-chip strong{font-size:14px}
+.cms-skills .skill-chip small{margin:0;color:var(--cyan);font:9px 'DM Mono',monospace}
+.cms-skills .skill-chip p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
+.drone-details{color:var(--cyan)!important;font-size:12px;letter-spacing:.04em}
+.drone-aircraft{font:10px 'DM Mono',monospace;color:var(--muted);letter-spacing:.08em}
+.drone-aircraft strong{color:#e9efff}
+.drone-skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
+.drone-skill{padding:20px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,rgba(78,140,255,.1),rgba(12,17,29,.9));transition:transform .3s,border-color .3s,box-shadow .3s;animation:cardRise .65s both;animation-delay:calc(var(--card-index,0)*80ms)}
+.drone-skill strong{color:var(--cyan);font:600 14px var(--font)}
+.drone-skill p{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+@keyframes cardRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.orbit-one,.orbit-two,.cms-skills .skill-chip,.drone-skill{animation:none}}
