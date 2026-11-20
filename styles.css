@@ -579,3 +579,6 @@ main{width:100%;max-width:none}
  .hero{min-height:calc(100svh - 146px)!important;padding-block:24px!important}
  .hero-art,.hero-image-frame{height:calc(100svh - 205px)!important;min-height:460px!important}
 }
+
+/* Keep the portrait still and naturally framed; do not fake image detail. */
+.hero-image-frame{animation:none!important;transform:none!important}
