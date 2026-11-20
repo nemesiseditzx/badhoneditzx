@@ -6,6 +6,11 @@ const db=window.supabase&&window.BADHON_SUPABASE_URL&&window.BADHON_SUPABASE_PUB
 let language='en',content={};
 const textValue=v=>typeof v==='object'&&v!==null?(v[language]??v.en??''):v??'';
 function setLanguage(next){language=next==='bn'?'bn':'en';document.documentElement.lang=language;document.body.classList.toggle('bn',language==='bn');$$('[data-en][data-bn]').forEach(el=>{const value=el.dataset[language];if(value!==undefined)el.innerHTML=value;});const b=$('#langSwitch');if(b){b.textContent=language==='en'?'বাংলা':'English';b.setAttribute('aria-label',language==='en'?'Switch to Bangla':'Switch to English');}applyContent(content);}
+const contactDialog=$('#contactDialog');
+$('[data-open-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.showModal()));
+$('[data-close-contact]').forEach(button=>button.addEventListener('click',()=>contactDialog?.close()));
+contactDialog?.addEventListener('click',event=>{if(event.target===contactDialog)contactDialog.close();});
+$('#contactForm')?.addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;const data=new FormData(form);const subject=encodeURIComponent(String(data.get('topic')||'Portfolio inquiry'));const body=encodeURIComponent('Name: '+String(data.get('name')||'')+'\n\n'+String(data.get('message')||''));location.href='mailto:bdnemesisgaming@gmail.com?subject='+subject+'&body='+body;});
 $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':'en'));
 const nav=$('#mainNav'),toggle=$('#menuToggle');
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
