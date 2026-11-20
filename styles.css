@@ -606,3 +606,12 @@ main{width:100%;max-width:none}
 @media(prefers-reduced-motion:reduce){
  .hero-image-frame{animation:none!important;transform:none!important;opacity:1!important;filter:none!important}
 }
+
+
+/* Personal cycling chapter */
+.cycling-story{max-width:1480px;margin:clamp(36px,6vw,84px) auto 0;padding:clamp(26px,4vw,54px);border:1px solid rgba(90,218,222,.24);background:linear-gradient(115deg,rgba(21,185,190,.10),rgba(35,53,94,.18));position:relative;overflow:hidden}
+.cycling-story:after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(90,218,222,.14);border-radius:50%;right:-90px;top:-120px;box-shadow:0 0 0 28px rgba(90,218,222,.025),0 0 0 58px rgba(90,218,222,.02)}
+.cycling-story-kicker,.cycling-story-note{font:700 10px 'DM Mono',monospace;letter-spacing:.18em;color:#54d9dc}
+.cycling-story h3{font-size:clamp(28px,4vw,48px);letter-spacing:-.045em;margin:18px 0 12px}
+.cycling-story p{max-width:700px;color:var(--muted,#aebbd1);line-height:1.85;margin:0 0 24px}
+@media(max-width:600px){.cycling-story{padding:24px 20px}}
