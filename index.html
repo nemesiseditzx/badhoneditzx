@@ -33,7 +33,7 @@
     </nav>
     <div class="header-actions">
       <button class="lang-switch" id="langSwitch" aria-label="Switch language">বাংলা</button>
-      <a class="header-cta" href="#contact" data-en="Let's talk ↗" data-bn="কথা বলি ↗">Let's talk ↗</a>
+      <a class="header-cta" type="button" data-open-contact data-en="Let's talk ↗" data-bn="কথা বলি ↗">Let's talk ↗</a>
     </div>
   </header>
 
@@ -122,6 +122,25 @@
     <section class="section contact-section" id="contact"><div class="section-wrap"><div class="section-label reveal"><span>06</span><span data-en="LET'S CONNECT" data-bn="যোগাযোগ করি">LET'S CONNECT</span></div><div class="contact-content reveal"><p class="eyebrow" data-en="HAVE AN IDEA OR A PROJECT?" data-bn="কোনো আইডিয়া বা প্রজেক্ট আছে?">HAVE AN IDEA OR A PROJECT?</p><h2 data-en="Let's make<br /><span>something real.</span>" data-bn="চলুন একসঙ্গে<br /><span>কিছু তৈরি করি।</span>">Let's make<br /><span>something real.</span></h2><a class="contact-email" href="mailto:bdnemesisgaming@gmail.com">bdnemesisgaming@gmail.com <span>↗</span></a><div class="social-links"><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noreferrer">YouTube <span>↗</span></a><a href="https://www.instagram.com/badhoneditzx/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.tiktok.com/@badhoneditzx" target="_blank" rel="noreferrer">TikTok <span>↗</span></a><a href="https://t.me/badhoneditzx01" target="_blank" rel="noreferrer">Telegram <span>↗</span></a></div></div></div></section>
   </main>
 
+
+<dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactDialogTitle">
+<div class="contact-dialog-inner">
+<button class="contact-dialog-close" type="button" data-close-contact aria-label="Close">×</button>
+<p class="eyebrow">LET'S CONNECT</p>
+<h2 id="contactDialogTitle" data-en="What would you like to talk about?" data-bn="আপনি কী বিষয়ে কথা বলতে চান?">What would you like to talk about?</h2>
+<p class="contact-dialog-intro" data-en="Choose a topic, write a short message, or connect through my social platforms." data-bn="বিষয় বেছে মেসেজ লিখুন, অথবা সোশ্যাল মিডিয়ায় যোগাযোগ করুন।">Choose a topic, write a short message, or connect through my social platforms.</p>
+<form id="contactForm" class="contact-form">
+<label for="contactTopic">Topic</label><select id="contactTopic" name="topic" required><option>Project inquiry</option><option>Video editing</option><option>Business collaboration</option><option>General message</option></select>
+<label for="contactName">Your name</label><input id="contactName" name="name" autocomplete="name" placeholder="Your name" required>
+<label for="contactMessage">Your message</label><textarea id="contactMessage" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+<button class="btn btn-primary contact-send" type="submit">Send message ↗</button>
+</form>
+<div class="contact-dialog-socials"><span>OR FIND ME HERE</span>
+<a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+<a href="https://www.instagram.com/badhoneditzx/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<a href="https://www.tiktok.com/@badhoneditzx" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+<a href="https://t.me/badhoneditzx01" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+<a href="mailto:bdnemesisgaming@gmail.com">Email ↗</a></div></div></dialog>
   <footer class="site-footer"><div class="section-wrap footer-inner"><a class="brand" href="#home"><img src="assets/badhon-editzx-logo.jpg" alt=""/><span>BADHON<span class="brand-accent">EDITZX</span></span></a><p>© <span id="yearNow">2026</span> BADHON EDITZX. <span data-en="BUILT WITH AMBITION." data-bn="স্বপ্ন ও পরিশ্রমে তৈরি।">BUILT WITH AMBITION.</span></p><a href="#top" class="back-top" data-en="BACK TO TOP ↑" data-bn="উপরে ফিরুন ↑">BACK TO TOP ↑</a></div></footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
   <script src="supabase-config.js"></script>
