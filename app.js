@@ -36,9 +36,14 @@ if(d.projectDescription){const p=$('.project-info p');if(p)p.textContent=textVal
 if(d.droneIntro){const e=$('#droneIntroText');if(e)e.textContent=textValue(d.droneIntro);}
 if(d.droneHours){const e=$('#droneHoursText');if(e)e.textContent=d.droneHours;}
 if(d.introQuote){const e=$('.intro-strip p');if(e)e.textContent=textValue(d.introQuote);}
-/* Portfolio palette is defined by the light theme; legacy CMS colors do not override it. */
+/* Admin theme controls update the public palette safely. */
+const hexColor=value=>typeof value==='string'&&/^#[0-9a-f]{6}$/i.test(value)?value:null;
+const accent=hexColor(d.accentColor),secondary=hexColor(d.secondaryColor);
+if(accent){document.documentElement.style.setProperty('--blue',accent);document.documentElement.style.setProperty('--lime',accent);}
+if(secondary){document.documentElement.style.setProperty('--purple',secondary);document.documentElement.style.setProperty('--cyan',secondary);}
 
-const socials=$('.social-links');if(socials&&Array.isArray(d.socialLinks)&&d.socialLinks.length){socials.replaceChildren();d.socialLinks.forEach(item=>{const url=safeUrl(item.url);if(!url)return;const name=(item.name||item.label||'Social').toLowerCase();const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',item.name||item.label||'Social');const icon=document.createElement('span');icon.className='social-icon';icon.innerHTML=socialIcon(name);const label=document.createElement('span');label.textContent=item.name||item.label||'Social';const arrow=document.createElement('b');arrow.textContent='↗';a.append(icon,label,arrow);socials.append(a);});}
+function renderSocialLinks(items){const valid=(Array.isArray(items)?items:[]).filter(item=>safeUrl(item.url));['.social-links','.social-bar-links','.contact-dialog-social-links'].forEach(selector=>{const host=$(selector);if(!host)return;host.replaceChildren();valid.forEach(item=>{const url=safeUrl(item.url);const name=(item.name||item.label||'Social').toLowerCase();const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',item.name||item.label||'Social');const icon=document.createElement('span');icon.className='social-icon';icon.innerHTML=socialIcon(name);const label=document.createElement('span');label.textContent=item.name||item.label||'Social';const arrow=document.createElement('b');arrow.textContent='↗';link.append(icon,label,arrow);host.append(link);});});}
+renderSocialLinks(d.socialLinks);
 
 renderProjects(d.projects);renderVideos(d.videos);renderSkills(d.skills);renderTimeline(d.experience);
 }
