@@ -442,3 +442,150 @@ html{background:var(--void);scroll-behavior:smooth}body{position:relative;backgr
 .bex-intro{background:radial-gradient(ellipse at 50% 45%,#172c49 0%,#080d19 48%,#04060d 100%)}
 @media(max-width:760px){.discipline-card,.principle-card,.skill-chip,.timeline-item,.featured-project,.cms-project-card,.video-card,.drone-visual,.channel-stats>div,.cycling-story,.sports-list>div,.contact-details .button-outline,.portrait-frame{transform:none!important;will-change:auto}.project-browser{transform:none}.bex-dimensional-type{animation:none}}
 @media(prefers-reduced-motion:reduce){.bex-dimensional-type{animation:none}.discipline-card,.principle-card,.skill-chip,.timeline-item,.featured-project,.cms-project-card,.video-card,.drone-visual,.channel-stats>div,.cycling-story,.sports-list>div,.contact-details .button-outline,.portrait-frame{transition:none;transform:none}}
+
+
+/* BEX VISUAL POLISH — editorial hierarchy, rich surfaces, controlled contrast. */
+:root{
+ --void:#080c16;--paper:#0b1120;--surface:#101a2d;--ink:#f5f7ff;--muted:#a8b4c8;
+ --line:rgba(173,198,235,.17);--accent:#83e7ff;--accent-2:#a99aff;
+ --display:"Manrope",sans-serif;
+}
+html{background:#080c16}
+body{background:linear-gradient(180deg,#080c16 0%,#0a1221 42%,#080c16 100%);color:var(--ink)}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.24;background-image:radial-gradient(rgba(170,200,240,.42) .65px,transparent .65px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 72%)}
+.container{width:min(1120px,calc(100% - 64px));margin-inline:auto}
+.site-header{background:rgba(8,12,22,.82)!important;border-bottom:1px solid var(--line)!important;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.brand{color:#f7f9ff}.brand-mark{color:var(--accent)}
+.main-nav a{color:#b6c1d3!important;transition:color .2s,transform .2s}
+.main-nav a:hover,.main-nav a[aria-current=location]{color:var(--accent)!important}
+.header-cta{border:1px solid rgba(131,231,255,.36);border-radius:999px;padding:12px 18px!important}
+.lang-switch{color:#e8effb!important}
+.hero{padding:78px 0 62px;background:transparent!important}
+.hero:before{left:-250px;top:60px;border-color:rgba(131,231,255,.12);box-shadow:0 0 0 55px rgba(131,231,255,.025),0 0 0 110px rgba(169,154,255,.02)}
+.hero-grid{min-height:610px;gap:clamp(40px,7vw,95px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(17,27,46,.68);color:#b7c7df}
+.status-dot{box-shadow:0 0 0 4px rgba(131,231,255,.1),0 0 15px rgba(131,231,255,.7)}
+.hero-kicker{color:#9caec7}
+.hero-copy h1{font-size:clamp(58px,8.1vw,108px);line-height:.91;letter-spacing:-.095em}
+.hero-copy h1>span{display:block;color:var(--accent)!important;text-shadow:0 0 36px rgba(131,231,255,.16)}
+.hero-period{color:#c2b8ff!important}
+.hero-role{max-width:480px;margin-top:23px;color:#e1e9f7!important;font-size:clamp(17px,1.8vw,22px);line-height:1.5}
+.hero-description{max-width:490px;color:#aab8ce!important;font-size:14px;line-height:1.95}
+.hero-actions{gap:22px;margin-top:28px}
+.button-dark{border-radius:8px;padding:15px 20px;background:linear-gradient(110deg,#83e7ff,#b4a6ff)!important;color:#08101c!important;font-weight:800;letter-spacing:-.01em}
+.text-action{color:#e2eaf7!important}
+.hero-meta{padding-top:18px;border-top:1px solid var(--line);max-width:420px;color:#8292aa!important}
+.hero-portrait-wrap{max-width:490px;padding:24px 18px 22px 32px}
+.portrait-index{color:#8fa2bd!important}
+.portrait-frame{overflow:hidden;border-radius:14px;background:linear-gradient(145deg,#182b45,#0d1728)!important;border:1px solid rgba(160,205,245,.27)!important;box-shadow:18px 18px 0 rgba(95,164,205,.09),0 38px 100px rgba(0,0,0,.48)!important}
+.portrait-frame:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(131,231,255,.15),transparent 35%,transparent 65%,rgba(169,154,255,.12));mix-blend-mode:screen}
+.section{padding:clamp(76px,9vw,116px) 0;background:transparent!important;color:var(--ink)!important}
+.about-section,.approach-section,.disciplines-section,.skills-section,.journey-section,.drone-section,.work-section,.channel-section,.outside-section,.contact-section{background:transparent!important}
+.section-top{border-color:var(--line)!important;padding-bottom:16px}
+.section-index{color:var(--accent)!important}
+.section-aside{color:#8192aa!important}
+.section-heading h2,.approach-heading h2,.section-intro h2,.journey-heading h2,.work-heading h2,.outside-inner h2,.contact-layout h2,.drone-copy h2,.channel-layout h2{color:#f3f7ff!important;letter-spacing:-.075em}
+.section-heading h2 em,.approach-heading h2 em,.section-intro h2 em,.journey-heading h2 em,.work-heading h2 em,.outside-inner h2 em,.contact-layout h2 em,.drone-copy h2 em,.channel-layout h2 em{color:var(--accent)!important}
+.about-grid,.section-intro,.journey-heading,.work-heading,.outside-inner,.contact-layout{position:relative}
+.about-copy p,.section-intro>p,.approach-heading>p,.drone-copy>p,.channel-layout>div>p,.outside-inner p,.contact-details>p{color:#aab8ce!important;line-height:1.95}
+.fact-strip{border-color:var(--line)!important}
+.fact-strip>div{border-color:var(--line)!important}
+.fact-strip strong{color:#f5f7ff}
+.fact-strip>div>span{color:#91a2bb!important}
+.principle-grid{border:1px solid var(--line)!important;border-radius:14px;overflow:hidden;background:rgba(14,23,40,.6)}
+.principle-card,.principle-card+.principle-card{min-height:245px;padding:27px!important;border-right:1px solid var(--line)!important;border-bottom:0!important}
+.principle-card:last-child{border-right:0!important}
+.principle-card>span{color:#8296b2!important}
+.principle-icon{color:var(--accent)!important;font-size:30px}
+.principle-card h3,.discipline-card h3{color:#f4f7ff!important}
+.principle-card p,.discipline-card p{color:#aab8ce!important}
+.discipline-grid{gap:13px!important}
+.discipline-card{min-height:270px;padding:25px!important;border:1px solid var(--line)!important;border-radius:13px;background:linear-gradient(145deg,rgba(24,39,64,.95),rgba(12,20,35,.94))!important;box-shadow:0 15px 40px rgba(0,0,0,.16)}
+.discipline-feature{background:linear-gradient(145deg,rgba(35,59,86,.98),rgba(14,27,46,.96))!important}
+.discipline-no{color:#879bb7!important}
+.discipline-art{font-size:46px;filter:drop-shadow(0 8px 15px rgba(131,231,255,.18))}
+.skills-grid{gap:10px!important}
+.skill-chip{padding:13px 16px!important;border:1px solid var(--line)!important;border-radius:9px;background:rgba(17,29,49,.82)!important;color:#dce8f8!important}
+.timeline{border-color:var(--line)!important}
+.timeline-item{border-color:var(--line)!important}
+.timeline-year{color:var(--accent)!important}
+.timeline-item h3{color:#f2f6ff!important}
+.timeline-item p{color:#aab8ce!important}
+.timeline-status{border:1px solid var(--line);border-radius:999px;background:rgba(131,231,255,.08)!important;color:#9deeff!important}
+.drone-layout,.channel-layout{gap:clamp(36px,7vw,85px)}
+.drone-visual{min-height:390px;border-radius:15px!important;background:radial-gradient(circle at 50% 45%,rgba(62,122,167,.25),transparent 55%),linear-gradient(145deg,#14253e,#0b1425)!important;border:1px solid var(--line)!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 30px 70px rgba(0,0,0,.25)}
+.drone-visual:before,.drone-visual:after{border-color:rgba(131,231,255,.2)}
+.drone-crosshair{width:100px;height:100px;border-radius:24px!important;transform:rotate(-8deg);background:linear-gradient(145deg,#8beaff,#7c8dff);color:#071222!important;border:1px solid rgba(255,255,255,.6);box-shadow:12px 14px 0 rgba(131,231,255,.12),0 20px 55px rgba(0,0,0,.4)}
+.drone-mark,.drone-coordinate{color:#94a8c3!important}
+.drone-model{border-color:var(--line)!important}
+.drone-model span{color:#8295b0!important}
+.drone-model strong{color:#edf4ff}
+.drone-skill{border:1px solid var(--line)!important;border-radius:8px;background:rgba(17,29,49,.78)!important}
+.drone-skill strong{color:#eaf4ff}
+.drone-skill p{color:#9eafc6}
+.drone-flight-stat{border-color:var(--line)!important}
+.channel-stats>div{border-radius:12px!important;background:linear-gradient(145deg,rgba(25,43,69,.95),rgba(12,21,37,.95))!important}
+.channel-stats strong{color:#f4f8ff}
+.channel-stats span{color:#8ea3bf!important}
+.featured-project{gap:clamp(30px,5vw,70px)}
+.project-visual{border-radius:16px;background:radial-gradient(circle at 50% 45%,rgba(131,231,255,.2),transparent 52%),linear-gradient(145deg,#1b3150,#0b1425)!important;border:1px solid var(--line);box-shadow:0 28px 75px rgba(0,0,0,.25)}
+.project-visual:before,.project-visual:after{border-color:rgba(131,231,255,.15)}
+.project-browser{border-radius:8px!important;border:1px solid rgba(255,255,255,.3);box-shadow:18px 20px 0 rgba(131,231,255,.12),0 35px 75px rgba(0,0,0,.45)!important}
+.project-info h3,.cms-project-card h3{color:#f5f7ff!important}
+.project-info p,.cms-project-card p{color:#aab8ce!important}
+.project-type,.video-meta span{color:var(--accent)!important}
+.project-grid,.video-grid{gap:16px}
+.cms-project-card,.video-card{padding:14px!important;border-radius:13px!important;border:1px solid var(--line)!important;background:linear-gradient(145deg,rgba(23,37,61,.94),rgba(12,20,35,.94))!important;box-shadow:0 18px 45px rgba(0,0,0,.2)}
+.cms-project-card img,.video-card img{border-radius:8px}
+.cms-project-card a,.video-card a{color:var(--accent)!important}
+.cycling-story{border:1px solid var(--line)!important;border-radius:13px;background:linear-gradient(145deg,rgba(23,37,61,.92),rgba(12,20,35,.94))!important}
+.cycling-story p{color:#aab8ce!important}
+.sports-list>div{border-color:var(--line)!important}
+.sports-list b{color:#eaf2ff!important}
+.sports-list span{color:#8ea1bc!important}
+.contact-section{background:linear-gradient(135deg,#142943 0%,#111a34 55%,#1a1738 100%)!important;border-top:1px solid rgba(131,231,255,.18);border-bottom:1px solid rgba(131,231,255,.18)}
+.contact-section .section-index{color:var(--accent)!important}
+.contact-section .section-aside{color:#9fb0c8!important}
+.contact-layout h2{font-size:clamp(52px,7vw,88px)!important}
+.contact-details>p{color:#b6c4d8!important}
+.contact-email{border-color:rgba(190,211,255,.25)!important;color:#f5f8ff}
+.contact-email span{color:var(--accent)!important}
+.social-links a{color:#a9bad2!important}
+.social-links a:hover{color:var(--accent)!important}
+.footer{background:#070b14!important;border-top:1px solid var(--line)!important;color:#93a3bb!important}
+.page-progress{height:2px;background:linear-gradient(90deg,#83e7ff,#a99aff)!important}
+.bex-intro{background:radial-gradient(ellipse at 50% 42%,#172b48 0%,#080d19 54%,#04060d 100%)}
+.bex-intro-mark span{filter:drop-shadow(0 14px 24px rgba(131,231,255,.18))}
+.bex-intro-caption{color:#b8c8df}
+.bex-depth-active{box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 0 1px rgba(131,231,255,.15),0 0 30px rgba(131,231,255,.1)!important}
+::selection{background:rgba(131,231,255,.32);color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent)!important;outline-offset:4px}
+@media(max-width:760px){
+ .container{width:calc(100% - 40px)}
+ .hero{padding:45px 0 38px}
+ .hero-grid{min-height:0;gap:35px}
+ .hero-copy h1{font-size:clamp(54px,13vw,82px)}
+ .hero-meta{margin-top:28px}
+ .section{padding:72px 0}
+ .principle-grid{grid-template-columns:1fr!important}
+ .principle-card,.principle-card+.principle-card{min-height:0;padding:22px!important;border-right:0!important;border-bottom:1px solid var(--line)!important}
+ .principle-card:last-child{border-bottom:0!important}
+ .discipline-card{min-height:220px}
+ .drone-visual{min-height:280px}
+ .featured-project{grid-template-columns:1fr}
+ .project-visual{min-height:280px}
+ .project-grid,.video-grid{grid-template-columns:1fr 1fr}
+ .contact-layout{gap:32px}
+}
+@media(max-width:480px){
+ .container{width:calc(100% - 32px)}
+ .hero-copy h1{font-size:clamp(48px,13vw,66px)}
+ .hero-portrait-wrap{padding:16px 8px 14px 20px}
+ .project-grid,.video-grid{grid-template-columns:1fr}
+ .section-aside{max-width:48%;text-align:right}
+ .contact-layout h2{font-size:clamp(45px,12vw,60px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .bex-depth-active{box-shadow:inherit!important}
+ .button-dark,.header-cta,.button-outline{transition:none}
+}
