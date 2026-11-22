@@ -329,3 +329,7 @@ img{display:block;max-width:100%}
   .principle-card:hover:after,.discipline-card:hover:after,.cms-project-card:hover:after,.skill-chip:hover:after,.video-card:hover:after{opacity:1}
 }
 .site-header.is-scrolled{box-shadow:0 7px 24px rgba(23,24,21,.055)}
+
+/* Keep the optional CMS-managed hero film behind the editorial content. */
+.hero-background-video{z-index:0;opacity:.055}
+.hero-grid,.hero-bottom{position:relative;z-index:1}
