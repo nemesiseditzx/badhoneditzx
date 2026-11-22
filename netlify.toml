@@ -1,7 +1,6 @@
 [build]
   publish = "."
 
-# Apply baseline browser security controls to every route, including /admin.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -12,17 +11,14 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
     Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: https:; connect-src 'self' https://mxxhjxzutxzaodcjtdrs.supabase.co wss://mxxhjxzutxzaodcjtdrs.supabase.co; upgrade-insecure-requests"
 
-# Prevent stale HTML, JavaScript and CSS from masking security fixes.
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
 [[headers]]
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
 [[headers]]
   for = "/*.css"
   [headers.values]
