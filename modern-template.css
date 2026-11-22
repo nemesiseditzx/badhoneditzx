@@ -405,3 +405,7 @@ img{display:block;max-width:100%}
   .channel-stats strong{font-size:22px}
   .channel-stats span{font-size:7px}
 }
+
+.drone-flight-stat{display:flex;align-items:baseline;gap:13px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.drone-flight-stat strong{font:800 26px var(--display);letter-spacing:-.06em;color:var(--accent)}
+.drone-flight-stat span{font:800 8px var(--display);letter-spacing:.13em;color:#92938a}
