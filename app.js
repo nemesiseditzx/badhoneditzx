@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)];
+const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function runOpeningSequence(){if(reduced||document.querySelector('.opening-screen'))return;const screen=document.createElement('div');screen.className='opening-screen';screen.setAttribute('aria-label','Welcome');screen.innerHTML='<div class="opening-brand"><img src="assets/badhon-editzx-logo.jpg" alt="Badhon EditZX logo"><div class="opening-mark">BEX<span>.</span></div></div><div class="opening-caption">BADHON EDITZX <span> / CREATIVE PORTFOLIO</span></div><div class="opening-track"><i></i></div>';document.body.append(screen);document.body.classList.add('is-opening');requestAnimationFrame(()=>screen.classList.add('opening-active'));const finish=()=>{screen.classList.add('opening-exit');document.body.classList.remove('is-opening');document.body.classList.add('opening-complete');setTimeout(()=>screen.remove(),850);};setTimeout(finish,1850);}
 runOpeningSequence();
