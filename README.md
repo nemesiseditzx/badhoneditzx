@@ -48,3 +48,9 @@ The Supabase project must remain active and within its plan quota for login, pub
 - The portfolio contact form posts to Netlify Forms instead of relying on a visitor's local `mailto:` application.
 - Includes a honeypot field, required-field validation, message length limits, disabled/loading state, and visible success/error feedback.
 - Form submissions are collected in the Netlify site's Forms inbox. Configure an email notification to `bdnemesisgaming@gmail.com` in Netlify Forms → Notifications if you want every submission delivered to the mailbox.
+
+## Modern portfolio visual reference
+
+The refreshed homepage layout and visual direction are adapted for Badhon EditZX from the section patterns in [nicremo/astro-multilingual-portfolio-template](https://github.com/nicremo/astro-multilingual-portfolio-template) (MIT License; Copyright (c) 2025 Fabian Bitzer). The upstream owner's personal content and identity are not reused. This project intentionally retains its existing vanilla HTML/CSS/JavaScript runtime, Supabase CMS, Netlify Forms integration, and separate Admin Studio rather than switching its production build to Astro.
+
+Upstream license: https://github.com/nicremo/astro-multilingual-portfolio-template/blob/main/LICENSE.md
