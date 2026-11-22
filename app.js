@@ -54,8 +54,8 @@ if(d.introQuote){const e=$('.intro-strip p');if(e)e.textContent=textValue(d.intr
 /* Admin theme controls update the public palette safely. */
 const hexColor=value=>typeof value==='string'&&/^#[0-9a-f]{6}$/i.test(value)?value:null;
 const accent=hexColor(d.accentColor),secondary=hexColor(d.secondaryColor);
-if(accent){document.documentElement.style.setProperty('--m-primary',accent);}
-if(secondary){document.documentElement.style.setProperty('--m-accent',secondary);}
+if(accent){document.documentElement.style.setProperty('--accent',accent);}
+if(secondary){document.documentElement.style.setProperty('--deep',secondary);}
 
 function renderSocialLinks(items){const valid=(Array.isArray(items)?items:[]).filter(item=>safeUrl(item.url));['.social-links','.modern-social .social-bar-links','.contact-dialog-social-links'].forEach(selector=>{const host=$(selector);if(!host)return;host.replaceChildren();valid.forEach(item=>{const url=safeUrl(item.url);const name=(item.name||item.label||'Social').toLowerCase();const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',item.name||item.label||'Social');const icon=document.createElement('span');icon.className='social-icon';icon.innerHTML=socialIcon(name);const label=document.createElement('span');label.textContent=item.name||item.label||'Social';const arrow=document.createElement('b');arrow.textContent='↗';link.append(icon,label,arrow);host.append(link);});});}
 renderSocialLinks(d.socialLinks);
