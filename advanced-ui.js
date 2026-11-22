@@ -30,7 +30,7 @@
     '.approach-heading', '.principle-grid', '.section-intro', '.discipline-grid',
     '.skills-panel', '.journey-layout', '.cycling-story', '.work-heading',
     '.featured-project', '.project-grid', '.video-heading', '.video-grid',
-    '.outside-inner', '.contact-layout'
+    '.drone-layout', '.channel-layout', '.outside-inner', '.contact-layout'
   ].join(',');
 
   let motionObserver = null;
