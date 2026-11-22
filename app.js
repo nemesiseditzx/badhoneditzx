@@ -2,8 +2,6 @@
 'use strict';
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function runOpeningSequence(){if(reduced||document.querySelector('.opening-screen'))return;const screen=document.createElement('div');screen.className='opening-screen';screen.setAttribute('aria-label','Welcome');screen.innerHTML='<div class="opening-brand"><img src="assets/badhon-editzx-logo.jpg" alt="Badhon EditZX logo"><div class="opening-mark">BEX<span>.</span></div></div><div class="opening-caption">BADHON EDITZX <span> / CREATIVE PORTFOLIO</span></div><div class="opening-track"><i></i></div>';document.body.append(screen);document.body.classList.add('is-opening');requestAnimationFrame(()=>screen.classList.add('opening-active'));const finish=()=>{screen.classList.add('opening-exit');document.body.classList.remove('is-opening');document.body.classList.add('opening-complete');setTimeout(()=>screen.remove(),850);};setTimeout(finish,1850);}
-runOpeningSequence();
 const db=window.supabase&&window.BADHON_SUPABASE_URL&&window.BADHON_SUPABASE_PUBLISHABLE_KEY?window.supabase.createClient(window.BADHON_SUPABASE_URL,window.BADHON_SUPABASE_PUBLISHABLE_KEY):null;
 let language='en',content={};
 const textValue=v=>{let value=v;for(let i=0;i<3&&value&&typeof value==='object';i++)value=value[language]??value.en??value.bn??'';return value??'';};
@@ -16,14 +14,14 @@ contactDialog?.addEventListener('click',event=>{if(event.target===contactDialog)
 $('#contactForm')?.addEventListener('submit',async event=>{event.preventDefault();const form=event.currentTarget;const status=$('#contactStatus');const button=form.querySelector('[type="submit"]');const data=new FormData(form);if(String(data.get('bot-field')||'').trim())return;const setStatus=(message,ok)=>{if(status){status.hidden=false;status.textContent=message;status.dataset.state=ok?'success':'error';}};if(!form.reportValidity())return;button.disabled=true;button.textContent='Sending…';setStatus('Sending your message securely…',true);try{const encoded=new URLSearchParams();for(const [key,value] of data.entries())encoded.append(key,String(value));const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:encoded.toString(),credentials:'same-origin'});if(!response.ok)throw new Error('The form service returned '+response.status+'.');form.reset();setStatus('Your message was submitted successfully. Thank you — I will get back to you soon.',true);}catch(error){setStatus('Your message could not be sent. Please try again or email bdnemesisgaming@gmail.com directly.',false);console.error('Contact form submission failed:',error);}finally{button.disabled=false;button.textContent='Send message ↗';}});
 $('#langSwitch')?.addEventListener('click',()=>setLanguage(language==='en'?'bn':'en'));
 const nav=$('#mainNav'),toggle=$('#menuToggle');
-toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
-$$('.main-nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}));
+toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');toggle?.setAttribute('aria-label','Open navigation');}));
 if(!reduced&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});$$('.reveal').forEach(el=>observer.observe(el));}else{$$('.reveal').forEach(el=>el.classList.add('visible'));}
 if(!reduced){$$('.hero-copy > *').forEach((el,i)=>{el.classList.add('hero-stagger');el.style.setProperty('--enter-order',i);});const portrait=$('#profilePortrait');if(portrait)portrait.classList.add('portrait-enter');}
 const progress=$('#scrollProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?scrollY/max*100:0)+'%';}addEventListener('scroll',updateProgress,{passive:true});updateProgress();$('#yearNow').textContent=new Date().getFullYear();
 const subscriber=$('#subscriberCount');if(subscriber&&subscriber.textContent.trim()==='933')subscriber.textContent='—';
 const statsStatus=$('#statsStatus');if(statsStatus)statsStatus.lastElementChild.textContent='Live YouTube API not connected';
-const safeUrl=value=>{try{const u=new URL(value,location.href);return u.protocol==='https:'?u.href:'';}catch{return '';}};
+const safeUrl=value=>{if(typeof value!=='string'||!value.trim())return '';try{const u=new URL(value.trim(),location.href);return u.protocol==='https:'?u.href:'';}catch{return '';}};
 const portraitImage=$('#profilePortrait');
 if(portraitImage){
  const markPortrait=(loaded)=>{portraitImage.dataset.portraitReady=loaded?'true':'false';};
