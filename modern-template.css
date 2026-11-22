@@ -420,3 +420,25 @@ html{background:var(--void);scroll-behavior:smooth}body{position:relative;backgr
 
 /* Keep the page usable if the intro controller or external 3D library cannot load. */
 .bex-intro{opacity:0;visibility:hidden;pointer-events:none}.bex-intro-active .bex-intro{opacity:1;visibility:visible;pointer-events:auto}.bex-intro-active{overflow:hidden}
+
+
+/* BEX 3D CONTENT SYSTEM: depth belongs to the content, not a giant background object. */
+.bex-world{display:none!important}
+.hero,.section,.intro-strip,.drone-section,.channel-section,.outside-section,.contact-section{position:relative;isolation:isolate}
+.hero-copy h1,.section-heading h2,.approach-heading h2,.section-intro h2,.journey-heading h2,.work-heading h2,.outside-inner h2,.contact-layout h2{transform-style:preserve-3d;text-shadow:0 2px 0 rgba(255,255,255,.06),0 5px 0 rgba(5,10,20,.55),0 18px 36px rgba(0,0,0,.32)}
+.bex-dimensional-type{animation:bex-type-arrive .8s cubic-bezier(.2,.8,.2,1) both}@keyframes bex-type-arrive{from{opacity:0;transform:translate3d(0,18px,-28px) rotateX(9deg);filter:blur(5px)}to{opacity:1;transform:translate3d(0,0,0) rotateX(0);filter:blur(0)}}
+.discipline-card,.principle-card,.skill-chip,.timeline-item,.featured-project,.cms-project-card,.video-card,.drone-visual,.channel-stats>div,.cycling-story,.sports-list>div,.contact-details .button-outline,.portrait-frame{position:relative;isolation:isolate;transform:perspective(1100px) rotateX(var(--bex-rx,0deg)) rotateY(var(--bex-ry,0deg)) translateZ(0);transform-style:preserve-3d;transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s,border-color .38s;will-change:transform;}
+.discipline-card:before,.principle-card:before,.skill-chip:before,.cms-project-card:before,.video-card:before,.channel-stats>div:before,.cycling-story:before,.sports-list>div:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--bex-lx,50%) var(--bex-ly,0%),rgba(139,233,255,.17),transparent 48%);opacity:.85;transition:opacity .3s}
+.discipline-card:after,.principle-card:after,.cms-project-card:after,.video-card:after,.skill-chip:after{content:"";position:absolute;inset:5px;z-index:-2;pointer-events:none;border-radius:inherit;transform:translate3d(0,9px,-18px);background:linear-gradient(145deg,rgba(91,143,202,.16),rgba(5,9,18,.7));filter:blur(8px);opacity:.8}
+.bex-depth-active{border-color:rgba(139,233,255,.58)!important;box-shadow:0 30px 65px rgba(0,0,0,.38),0 0 28px rgba(92,196,255,.12),inset 0 1px rgba(255,255,255,.12)!important}
+.portrait-frame{box-shadow:18px 22px 0 rgba(67,112,164,.13),0 35px 90px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.18)!important}
+.button-dark,.header-cta,.button-outline{position:relative;transform:translateY(0);box-shadow:0 5px 0 rgba(39,78,122,.65),0 13px 28px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
+.button-dark:hover,.header-cta:hover,.button-outline:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(39,78,122,.55),0 20px 38px rgba(0,0,0,.32)}
+.button-dark:active,.header-cta:active,.button-outline:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(39,78,122,.65),0 6px 12px rgba(0,0,0,.2)}
+.discipline-art,.principle-icon,.drone-crosshair,.cycling-symbol{filter:drop-shadow(0 5px 0 rgba(0,0,0,.3)) drop-shadow(0 10px 16px rgba(91,207,255,.14));transform:translateZ(22px)}
+.project-browser{transform:perspective(900px) rotateY(-9deg) rotateX(4deg) translateZ(22px);box-shadow:18px 22px 0 rgba(84,142,202,.16),0 35px 70px rgba(0,0,0,.38)!important;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.featured-project:hover .project-browser{transform:perspective(900px) rotateY(-2deg) rotateX(0) translateZ(38px)}
+.timeline-item:before{box-shadow:0 0 0 5px rgba(139,233,255,.08),0 0 22px rgba(139,233,255,.6)}
+.bex-intro{background:radial-gradient(ellipse at 50% 45%,#172c49 0%,#080d19 48%,#04060d 100%)}
+@media(max-width:760px){.discipline-card,.principle-card,.skill-chip,.timeline-item,.featured-project,.cms-project-card,.video-card,.drone-visual,.channel-stats>div,.cycling-story,.sports-list>div,.contact-details .button-outline,.portrait-frame{transform:none!important;will-change:auto}.project-browser{transform:none}.bex-dimensional-type{animation:none}}
+@media(prefers-reduced-motion:reduce){.bex-dimensional-type{animation:none}.discipline-card,.principle-card,.skill-chip,.timeline-item,.featured-project,.cms-project-card,.video-card,.drone-visual,.channel-stats>div,.cycling-story,.sports-list>div,.contact-details .button-outline,.portrait-frame{transition:none;transform:none}}
