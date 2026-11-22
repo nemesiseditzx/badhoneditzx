@@ -1,7 +1,6 @@
 (() => {
 'use strict';
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
-const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const db=window.supabase&&window.BADHON_SUPABASE_URL&&window.BADHON_SUPABASE_PUBLISHABLE_KEY?window.supabase.createClient(window.BADHON_SUPABASE_URL,window.BADHON_SUPABASE_PUBLISHABLE_KEY):null;
 let language='en',content={};
 const textValue=v=>{let value=v;for(let i=0;i<3&&value&&typeof value==='object';i++)value=value[language]??value.en??value.bn??'';return value??'';};
