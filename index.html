@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f2ed">
+  <meta name="theme-color" content="#080c16">
   <meta name="description" content="Badhon EditZX — video editor, creator, music maker and builder. A portfolio of creative work, experiments and projects.">
   <meta property="og:title" content="Badhon EditZX — Creative Portfolio">
   <meta property="og:description" content="Video editing since 2019. Music, digital projects and ideas in progress.">
@@ -154,11 +154,11 @@
           <a class="project-visual" href="https://grabzone.tech/" target="_blank" rel="noopener noreferrer" aria-label="Visit GrabZone website">
             <div class="project-browser"><div class="browser-bar"><i></i><i></i><i></i><span>GRABZONE.TECH</span></div><div class="browser-body"><div class="browser-wordmark">GRAB<span>ZONE</span><b>.</b></div><small>DISCOVER · SHOP · REPEAT</small><div class="browser-products"><i></i><i></i><i></i></div><div class="browser-lines"><i></i><i></i></div></div></div><span class="project-open">↗</span>
           </a>
-          <div class="project-info"><span class="project-type">DIGITAL BUSINESS / WEB PROJECT</span><h3>GrabZone</h3><p data-en="GrabZone is an online multi-vendor marketplace I’m building. I’m working on its products, vendor system and the parts needed to run an online store." data-bn="GrabZone আমার তৈরি করা একটি অনলাইন মাল্টি-ভেন্ডর মার্কেটপ্লেস। এখানে পণ্য, ভেন্ডর সিস্টেম এবং অনলাইন স্টোর পরিচালনার প্রয়োজনীয় ফিচার তৈরি করছি।">GrabZone is an online multi-vendor marketplace I’m building. I’m working on its products, vendor system and the parts needed to run an online store.</p><a class="inline-link" href="https://grabzone.tech/" target="_blank" rel="noopener noreferrer" data-en="Explore GrabZone ↗" data-bn="GrabZone দেখুন ↗">Explore GrabZone ↗</a></div>
+          <div class="project-info"><span class="project-type">DIGITAL BUSINESS / WEB PROJECT</span><h3>GrabZone</h3><p data-en="A marketplace project focused on products, vendors and a smoother online shopping experience." data-bn="পণ্য, ভেন্ডর এবং সহজ অনলাইন শপিং অভিজ্ঞতা নিয়ে তৈরি একটি মার্কেটপ্লেস প্রজেক্ট।">A marketplace project focused on products, vendors and a smoother online shopping experience.</p><button class="inline-link detail-trigger" type="button" data-detail-title="GrabZone" data-detail-kicker="DIGITAL BUSINESS / WEB PROJECT" data-detail-body="GrabZone is an online multi-vendor marketplace I’m building. The project includes product listings, vendor accounts, a vendor system and the core features needed to operate an online store." data-detail-url="https://grabzone.tech/">More about the project ↗</button><a class="inline-link" href="https://grabzone.tech/" target="_blank" rel="noopener noreferrer" data-en="Explore GrabZone ↗" data-bn="GrabZone দেখুন ↗">Explore GrabZone ↗</a></div>
         </article>
-        <div class="project-grid" id="projectsGrid" aria-label="More portfolio projects"></div>
+        <div class="project-rail-controls"><span class="panel-kicker">MORE PROJECTS</span><div><button class="rail-arrow" type="button" data-rail="projectsGrid" data-direction="-1" aria-label="Scroll projects left">←</button><button class="rail-arrow" type="button" data-rail="projectsGrid" data-direction="1" aria-label="Scroll projects right">→</button></div></div><div class="project-grid project-rail" id="projectsGrid" aria-label="More portfolio projects"></div>
         <div class="video-heading"><div><span class="panel-kicker">VIDEO / MUSIC / EDITS</span><h3 data-en="From the creative feed." data-bn="আমার ভিডিও ও মিউজিক।">From the creative feed.</h3></div><a class="inline-link" href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener noreferrer">YouTube channel ↗</a></div>
-        <div class="video-grid" id="videoGrid">
+        <div class="project-rail-controls video-rail-controls"><span class="panel-kicker">WATCH MORE</span><div><button class="rail-arrow" type="button" data-rail="videoGrid" data-direction="-1" aria-label="Scroll videos left">←</button><button class="rail-arrow" type="button" data-rail="videoGrid" data-direction="1" aria-label="Scroll videos right">→</button></div></div><div class="video-grid video-rail" id="videoGrid">
           <a class="video-card" href="https://youtu.be/3lkTGcBtfrI" target="_blank" rel="noopener noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/3lkTGcBtfrI/hqdefault.jpg" alt="Video edit showcase 1" loading="lazy"><span>▶</span></div><div class="video-meta"><span>VIDEO EDIT / 01</span><b>Watch on YouTube ↗</b></div></a>
           <a class="video-card" href="https://youtu.be/PHJYMsd-rZk" target="_blank" rel="noopener noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/PHJYMsd-rZk/hqdefault.jpg" alt="Video edit showcase 2" loading="lazy"><span>▶</span></div><div class="video-meta"><span>VIDEO EDIT / 02</span><b>Watch on YouTube ↗</b></div></a>
           <a class="video-card" href="https://youtu.be/2Fji1WFDIjY" target="_blank" rel="noopener noreferrer"><div class="video-thumb"><img src="https://i.ytimg.com/vi/2Fji1WFDIjY/hqdefault.jpg" alt="Video edit showcase 3" loading="lazy"><span>▶</span></div><div class="video-meta"><span>VIDEO EDIT / 03</span><b>Watch on YouTube ↗</b></div></a>
@@ -195,6 +195,11 @@
       </div>
     </section>
   </main>
+
+
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailDialogTitle">
+    <div class="detail-dialog-inner"><button class="dialog-close" type="button" data-close-detail aria-label="Close details">×</button><span class="panel-kicker" id="detailDialogKicker">DETAILS / 01</span><h2 id="detailDialogTitle">More details</h2><p id="detailDialogBody"></p><a id="detailDialogLink" class="button button-dark" href="#" target="_blank" rel="noopener noreferrer" hidden>Open project ↗</a></div>
+  </dialog>
 
   <dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactDialogTitle">
     <div class="dialog-inner">
