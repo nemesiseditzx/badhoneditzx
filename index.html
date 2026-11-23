@@ -1,46 +1,97 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f8fcff"><meta name="description" content="Badhon EditZX — video editing, kinetic typography, music and digital projects.">
-<meta property="og:title" content="Badhon EditZX — Make It Move"><meta property="og:description" content="Motion, sound and ideas by Badhon EditZX."><meta property="og:image" content="assets/badhon-editzx-logo.jpg">
-<title>Badhon EditZX — Make It Move</title><link rel="icon" href="assets/badhon-editzx-logo.jpg">
+<meta name="theme-color" content="#fbfdff">
+<meta name="description" content="Md Mahim Badhon — Badhon EditZX. Video editor, creator and builder.">
+<meta property="og:title" content="Badhon EditZX — Md Mahim Badhon">
+<meta property="og:description" content="Video editor · Creator · Building GrabZone">
+<meta property="og:image" content="assets/badhon-editzx-logo.jpg">
+<title>Badhon EditZX — Md Mahim Badhon</title>
+<link rel="icon" href="assets/badhon-editzx-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js" defer></script><script src="supabase-config.js" defer></script><script src="script.js?v=2" defer></script>
-</head><body>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js" defer></script><script src="supabase-config.js" defer></script><script src="script.js?v=3" defer></script>
+</head>
+<body>
 <div class="scroll-line" aria-hidden="true"></div>
-<header class="header"><a class="logo" href="#home" aria-label="Badhon EditZX home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a>
-<button class="menu" id="menuToggle" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
-<nav class="nav" id="mainNav" aria-label="Main navigation"><a href="#work">Work</a><a href="#motion">Motion Lab</a><a href="#craft">Skills</a><a href="#journey">Journey</a><a href="#about">About</a><a href="#cycling">Cycling</a><a href="#contact">Contact</a></nav>
-<div class="header-actions"><button id="langSwitch" class="lang-switch" type="button" aria-label="Switch to Bangla">বাংলা</button><a class="header-link" href="#contact">LET’S TALK <b>↗</b></a></div></header>
+<header class="header" id="top">
+<a class="logo" href="#home" aria-label="Badhon EditZX home"><img src="assets/badhon-editzx-logo.jpg" alt="Badhon EditZX logo"><span>BADHON<span>EDITZX</span></span></a>
+<button class="menu" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+<a href="#about">About</a><a href="#what-i-do">What I do</a><a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+</nav>
+<div class="header-actions"><button id="langSwitch" class="lang-switch" type="button" aria-label="Switch to Bangla">বাংলা</button><a class="header-link" href="#contact">Let's talk ↗</a></div>
+</header>
 <main id="home">
-<section class="hero" id="hero"><div class="hero-noise" aria-hidden="true"></div><div class="hero-inner">
-<div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span><span data-cms="heroKicker">Hello, I'm</span> <span class="owner-name" data-cms="fullName">Md Mahim Badhon</span></p>
-<h1><span class="line-mask"><span>MAKE</span></span><span class="line-mask"><span class="blue-word">IT MOVE<span class="period">.</span></span></span></h1>
-<div class="hero-bottom"><div><p data-cms="heroRole">Video editor · Creator · Building GrabZone</p><p class="hero-description" data-cms="heroDescription">I started editing videos in 2019.</p></div><a class="round-link" href="#work" aria-label="Explore work">↓</a></div>
-<div class="hero-foot"><span>BADHON EDITZX</span><span>VIDEO EDITING SINCE 2019</span></div></div>
-<div class="hero-art" aria-label="BEX motion artwork"><div class="hero-media" id="heroMedia"><img id="heroPoster" src="assets/hero-silhouette.png" alt="Badhon EditZX creative portrait" onerror="this.hidden=true"></div><div class="art-grid"></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-type">B<span>E</span>X</div><div class="art-index">FRAME<br>001—026</div><div class="art-pill">MOTION / SOUND / IDEAS</div><div class="art-caption">A LITTLE DIFFERENT<br>BY DESIGN.</div></div>
-</div><div class="hero-bottomline"><span>SCROLL TO EXPLORE</span><span>01 — 06</span></div></section>
-<section class="intro section-wrap"><p class="micro-label">01 / THE POINT OF VIEW</p><div class="intro-grid"><h2>Not just content.<br><em>A feeling that stays.</em></h2><div><p class="large-copy" data-cms="introQuote" data-en="The best work has rhythm. A visual hook, a moment of surprise, a detail you remember." data-bn="সেরা কাজের নিজস্ব ছন্দ থাকে—একটি ভিজ্যুয়াল হুক, চমক, আর মনে রাখার মতো একটি মুহূর্ত।">The best work has rhythm. A visual hook, a moment of surprise, a detail you remember.</p><p class="sub-copy" data-cms="heroDescription">I create content, explore music production and build websites and GrabZone.</p></div></div></section>
-<section class="work section-wrap" id="work"><div class="section-head"><div><p class="micro-label">02 / SELECTED WORK</p><h2>Made to <em>move.</em></h2></div><span class="section-note">A FEW FRAMES FROM THE ARCHIVE ↘</span></div>
-<div class="work-grid" id="videoGrid" aria-live="polite"></div>
-<div class="cms-projects" id="projectsGrid"></div><a class="all-work" href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">EXPLORE THE FULL ARCHIVE <span>↗</span></a></section>
-<section class="motion section-wrap" id="motion"><div class="section-head"><div><p class="micro-label">03 / INTERACTIVE MOTION LAB</p><h2>Tap into <em>motion.</em></h2></div><span class="section-note">2D STUDIES · LIVE INTERACTION</span></div>
-<div class="motion-grid">
-<button class="motion-card type-card" data-motion="type" type="button"><span class="motion-no">01 / TYPE STUDY</span><span class="type-demo">Aa<span>!</span></span><strong>Kinetic Typography</strong><small>Hover / tap to animate</small></button>
-<button class="motion-card velocity-card" data-motion="velocity" type="button"><span class="motion-no">02 / VELOCITY</span><span class="velocity-demo"><i></i><i></i><i></i><i></i><i></i></span><strong>Velocity Sync</strong><small>Speed, rhythm, impact</small></button>
-<button class="motion-card shape-card" data-motion="shape" type="button"><span class="motion-no">03 / SHAPE LANGUAGE</span><span class="shape-demo"><i></i><i></i><i></i></span><strong>2D Motion Graphics</strong><small>Tap to morph the forms</small></button>
-<button class="motion-card sound-card" data-motion="sound" type="button"><span class="motion-no">04 / SOUND DESIGN</span><span class="sound-demo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><strong>Sound & Waveform</strong><small id="soundStatus">Tap to activate the sound study</small><span class="sound-toggle" id="soundToggle">PLAY STUDY ↗</span></button>
-</div><p class="motion-hint" id="motionHint" aria-live="polite">Choose a study to see its motion response.</p></section>
-<section class="craft section-wrap" id="craft"><div class="section-head"><div><p class="micro-label">04 / THE TOOLKIT</p><h2>Different skills.<br><em>One language.</em></h2></div><p class="section-note">VISUALS · SOUND · TECHNOLOGY</p></div>
-<div class="craft-list" id="skillsGrid"><article><span>01</span><h3>Motion & Editing</h3><p>Velocity edits, transitions, rhythm, timing and visual storytelling.</p><b>↗</b></article><article><span>02</span><h3>Kinetic Typography</h3><p>Type that moves with purpose — expressive, precise and sound-aware.</p><b>↗</b></article><article><span>03</span><h3>Music & Sound</h3><p>Exploring lyrics, production, atmosphere and emotion.</p><b>↗</b></article><article><span>04</span><h3>Digital Building</h3><p>Turning ideas into useful products and online experiences.</p><b>↗</b></article></div>
-<div class="drone-panel"><div><p class="micro-label">SPECIAL INTEREST / AERIAL VISUALS</p><h3>Drone & Aerial Work</h3><p data-cms="droneIntro">I enjoy flying drones and seeing familiar places from a different angle.</p><p class="drone-details" data-cms="droneDetails">Aerial views · Creative framing · Visual storytelling</p></div><div class="drone-orbit"><span>DRONE MODEL</span><b data-cms="droneModel">—</b><span data-cms="droneHours">FLIGHT HOURS —</span></div></div></section>
-<section class="journey section-wrap" id="journey"><div class="section-head"><div><p class="micro-label">05 / THE JOURNEY</p><h2>Built one frame <em>at a time.</em></h2></div><span class="section-note">LEARN · BUILD · REPEAT</span></div><div class="timeline" id="timelineGrid"><article><span>2019</span><div><h3>First edits</h3><p>Started exploring video editing and creative expression.</p></div></article><article><span>2022</span><div><h3>BADHON EDITZX</h3><p>Built a creator identity around edits, presets and motion.</p></div></article><article><span>2025—NOW</span><div><h3>Beyond the timeline</h3><p>Exploring music, entrepreneurship, technology and digital products.</p></div></article></div>
-<div class="project-feature"><div class="project-copy"><p class="micro-label">CURRENT PROJECT</p><h3 data-cms="projectTitle">GrabZone</h3><p data-cms="projectDescription">GrabZone is a marketplace project I’m building.</p><a id="projectLink" href="https://grabzone.tech/" target="_blank" rel="noopener">EXPLORE PROJECT ↗</a></div><div class="project-art"><span>GZ</span><i></i><i></i><i></i></div></div></section>
-<section class="cycling section-wrap" id="cycling"><div class="section-head"><div><p class="micro-label">PERSONAL INTEREST</p><h2>Beyond the <em>screen.</em></h2></div><span class="section-note">CYCLING</span></div><p class="cycling-copy" data-cms="cyclingIntro">Cycling is another part of my story.</p></section>
-<section class="about section-wrap" id="about"><div class="about-card"><div class="about-top"><p class="micro-label">06 / A LITTLE ABOUT ME</p><span>THE PERSON BEHIND THE FRAMES</span></div><div class="about-body"><div class="about-mark">B<span>.</span></div><div><h2>Curious by nature.<br><em>Creative by choice.</em></h2><p data-cms="aboutIntro" data-en="I’m Badhon — a creator who started editing in 2019 and kept exploring. Video, design, music, technology and entrepreneurship connect through one thing: making something from nothing." data-bn="আমি বাধন—২০১৯ সালে এডিটিং শুরু করি, তারপর থেকে নতুন কিছু শেখা ও তৈরি করা চালিয়ে যাচ্ছি। ভিডিও, ডিজাইন, মিউজিক, প্রযুক্তি ও উদ্যোক্তা ভাবনা—সবকিছুর মিল হলো শূন্য থেকে কিছু তৈরি করা।">I’m Badhon — a creator who started editing in 2019 and kept exploring. Video, design, music, technology and entrepreneurship connect through one thing: making something from nothing.</p><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener" class="under-link">FOLLOW THE JOURNEY ↗</a></div></div><div class="about-bottom"><span>LEARN / MAKE / REPEAT</span><span>ALWAYS IN PROGRESS</span></div></div></section>
-<section class="contact section-wrap" id="contact"><p class="micro-label">07 / YOUR TURN</p><div class="contact-inner"><h2>Have an idea?<br><em>Let’s give it motion.</em></h2><button class="contact-button" type="button" data-open-contact>START A CONVERSATION <span>↗</span></button></div><div class="socials" id="socialLinks"></div></section>
-</main><footer><a class="logo" href="#home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a><p>© <span id="year"></span> BADHON EDITZX — MADE WITH INTENTION.</p><a href="/admin.html" rel="nofollow">ADMIN STUDIO ↗</a><a href="#home">BACK TO TOP ↑</a></footer>
-<dialog class="contact-dialog" id="contactDialog"><form name="portfolio-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm"><input type="hidden" name="form-name" value="portfolio-contact"><p class="micro-label">LET’S MAKE SOMETHING</p><h2>Send a message<span>.</span></h2><p class="bot-trap"><label>Leave this empty<input name="bot-field"></label></p><label>Your name<input name="name" required maxlength="100" placeholder="Name"></label><label>Email address<input name="email" type="email" required maxlength="180" placeholder="you@example.com"></label><label>What’s on your mind?<textarea name="message" rows="5" required maxlength="3000" placeholder="Tell me about your idea…"></textarea></label><div class="dialog-actions"><button type="button" class="dialog-close" data-close-contact>Close</button><button type="submit" class="dialog-send">Send message ↗</button></div><p id="contactStatus" role="status" aria-live="polite"></p></form></dialog>
+<section class="hero section-wrap" id="hero">
+<div class="hero-copy">
+<p class="eyebrow"><span class="live-dot"></span>VIDEO EDITOR · CREATOR · BUILDER</p>
+<p class="hello" data-cms="heroKicker">Hello, I'm</p>
+<h1><span>MD</span><span>MAHIM</span><span class="blue-word">BADHON<span class="period">.</span></span></h1>
+<p class="hero-role" data-cms="heroRole">Video editor · Creator · Building GrabZone</p>
+<p class="hero-description" data-cms="heroDescription">I started editing videos in 2019. Now I create content, explore music production and build websites and my own marketplace project, GrabZone. I’m still studying, and I learn by working on real projects.</p>
+<div class="hero-buttons"><a class="btn btn-primary" href="#projects">Explore my work <span>↗</span></a><a class="btn btn-ghost" href="#about">Get to know me</a></div>
+<div class="hero-socials"><span>FOLLOW MY WORK</span><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/badhoneditzx/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.tiktok.com/@badhoneditzx" target="_blank" rel="noopener">TikTok ↗</a><a href="https://t.me/badhoneditzx01" target="_blank" rel="noopener">Telegram ↗</a></div>
+</div>
+<div class="hero-art" id="heroMedia">
+<div class="hero-media"><img id="heroPoster" src="assets/hero-silhouette.png" alt="Md Mahim Badhon portrait" onerror="this.hidden=true"></div>
+<div class="hero-art-overlay"><span class="art-index">BEX / 001 — THE JOURNEY</span><span class="art-stamp">✦</span><span class="art-caption">CREATING SINCE 2019<br>ALWAYS BUILDING</span></div>
+</div>
+<div class="hero-bottomline"><span>01 / 06</span><span>SCROLL TO EXPLORE</span><span>↓</span></div>
+</section>
+<section class="intro-strip"><p data-cms="introQuote">Nothing comes easy. I’m learning, working and building one step at a time.</p><span>✳</span></section>
+<section class="section section-wrap about-section" id="about">
+<div class="section-label"><span>01</span><span>A BIT ABOUT ME</span></div>
+<div class="about-layout">
+<div class="about-heading"><p class="eyebrow">A LITTLE ABOUT ME</p><h2>I like making<br><em>things myself.</em></h2><p class="about-location">⌖ Bangladesh-born · Based in the United States</p></div>
+<div class="about-copy">
+<p data-cms="aboutIntro">I’m Mahim Badhon, the person behind Badhon EditZX. I started editing videos in 2019 and kept going because I enjoy making things and learning as I go. These days, I spend my time on content, music, websites and GrabZone, a marketplace project I’m building. I’m also a student, so I’m balancing school with the ideas I want to bring to life.</p>
+<p>I started editing in 2019 and later began sharing my work on YouTube through Badhon EditZX. I also make music, learn coding, follow the markets and work on GrabZone, my online marketplace project. Outside the computer, I enjoy cricket, badminton and football.</p>
+<p class="about-signoff">I have a lot to learn. I’m just getting started.</p>
+<a class="text-link contact-email" href="mailto:bdnemesisgaming@gmail.com">bdnemesisgaming@gmail.com ↗</a>
+</div></div>
+<div class="about-facts"><div><strong>2019</strong><span>I STARTED EDITING</span></div><div><strong>06+</strong><span>THINGS I SPEND TIME ON</span></div><div><strong>BD ↔ US</strong><span>FROM BANGLADESH TO THE US</span></div></div>
+</section>
+<section class="section section-wrap interests" id="what-i-do">
+<div class="section-label"><span>02</span><span>WHAT I'M INTO</span></div>
+<div class="section-heading"><h2>A few things<br>I spend time on.</h2><p>These are the things I enjoy doing, learning and getting better at.</p></div>
+<div class="interest-grid">
+<article><span class="interest-no">01 / VISUALS</span><b>✳</b><h3>Video Editing</h3><p>I edit videos and enjoy shaping the cuts, music and small details until they feel right.</p><a href="#projects">↗</a></article>
+<article><span class="interest-no">02 / SOUND</span><b>♫</b><h3>Music Production</h3><p>I write and work on music because I enjoy playing with melodies and sounds.</p><a href="#projects">↗</a></article>
+<article><span class="interest-no">03 / BUSINESS</span><b>◈</b><h3>Entrepreneurship</h3><p>I’m working on GrabZone and learning what it takes to run an online marketplace.</p><a href="#projects">↗</a></article>
+<article><span class="interest-no">04 / TECHNOLOGY</span><b>{ }</b><h3>Coding & Web</h3><p>I’m learning to code by building and fixing real website features.</p><a href="#projects">↗</a></article>
+<article><span class="interest-no">05 / MARKETS</span><b>↗</b><h3>Trading & Markets</h3><p>I follow stocks and crypto markets and try to understand the risks before making decisions.</p><a href="#projects">↗</a></article>
+<article><span class="interest-no">06 / OFF-SCREEN</span><b>⚡</b><h3>Sports & Fitness</h3><p>I play cricket, badminton and football when I’m away from the screen.</p><a href="#sports">↗</a></article>
+</div>
+</section>
+<section class="section section-wrap journey" id="journey">
+<div class="section-label"><span>03</span><span>WHERE IT STARTED</span></div>
+<div class="section-heading"><h2>It started in 2019.<br><em>I’m still learning.</em></h2><p>No big story here. I started editing, kept learning and picked up new projects along the way.</p></div>
+<div class="timeline" id="timelineGrid"><article><span>2019</span><div><h3>Started video editing</h3><p>I began learning video editing by making my own edits, experimenting with ideas and improving through practice.</p><b>STARTED</b></div></article><article><span>2026</span><div><h3>Building my own projects</h3><p>I’m studying, creating content, exploring music production and building GrabZone. I’m still learning and turning ideas into real projects.</p><b>NOW</b></div></article></div>
+<div class="cycling-block" id="cycling"><div><p class="micro-label">ANOTHER PART OF MY STORY</p><h3>I’m a cyclist, too.</h3><p class="cycling-copy" data-cms="cyclingIntro">Cycling is another part of my story. I used to practise bike stunts, but I don’t do stunts anymore. These days, I keep the cyclist side of me as a passion and a memory of the skills I worked on.</p><span>PAST STUNTS · STILL A CYCLIST</span></div><div class="cycling-mark">↗</div></div>
+</section>
+<section class="section section-wrap drone-section" id="droneSection">
+<div class="section-label"><span>04</span><span>DRONE PILOT / AERIAL WORK</span></div>
+<div class="drone-layout"><div><p class="micro-label">DRONE FLYING</p><h2>A view<br><em>from above.</em></h2><p data-cms="droneIntro">I enjoy flying drones and seeing familiar places from a different angle. It gives me another way to explore framing, movement and visual storytelling.</p><p class="drone-details" data-cms="droneDetails">Aerial views · Creative framing · Visual storytelling</p></div><div class="drone-spec"><span>DRONE MODEL</span><strong data-cms="droneModel">Model details not specified</strong><span data-cms="droneHours">FLIGHT HOURS —</span><div class="drone-orbit">✳</div></div></div>
+</section>
+<section class="section section-wrap projects" id="projects">
+<div class="section-label"><span>05</span><span>THINGS I’VE MADE</span></div>
+<div class="section-heading"><h2>A few things<br>I’ve worked on.</h2><p>Here are some edits and music videos I’ve shared, along with a project I’m building.</p></div>
+<div class="project-feature"><div class="project-art"><span>GRABZONE.TECH</span><b>GRABZONE</b><small>DISCOVER · SHOP · REPEAT ↗</small></div><div class="project-copy"><p class="micro-label">DIGITAL BUSINESS / WEB PROJECT</p><h3 data-cms="projectTitle">GrabZone</h3><p data-cms="projectDescription">GrabZone is a marketplace project I’m building. I work on the website, the shopping experience and the systems that help the marketplace run.</p><a id="projectLink" href="https://grabzone.tech/" target="_blank" rel="noopener">Visit the website ↗</a></div></div>
+<div class="video-grid" id="videoGrid" aria-live="polite"></div><div class="cms-projects" id="projectsGrid"></div>
+<a class="all-work" href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">MORE FROM BADHON EDITZX <span>↗</span></a>
+</section>
+<section class="section section-wrap youtube-section">
+<div class="section-label"><span>05</span><span>THE CHANNEL, LIVE</span></div><div class="youtube-card"><div><p class="micro-label">YOUTUBE / @BADHONEDITZX</p><h2>My YouTube<br><em>channel.</em></h2><p>I post my edits and creative videos on Badhon EditZX. Visit the channel to see the latest uploads.</p><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">Open YouTube channel ↗</a></div><div class="youtube-stats"><div><strong>—</strong><span>SUBSCRIBERS</span></div><div><strong>—</strong><span>TOTAL VIEWS</span></div><div><strong>—</strong><span>VIDEOS</span></div><small>Live YouTube API not connected</small></div></div>
+</section>
+<section class="section section-wrap sports" id="sports">
+<div class="section-label"><span>OFF THE SCREEN</span><span>WHEN I’M NOT AT MY DESK</span></div><h2>When I’m not<br><em>at my desk.</em></h2><div class="sports-grid"><article><span>01</span><b>🏏</b><h3>CRICKET</h3></article><article><span>02</span><b>🏸</b><h3>BADMINTON</h3></article><article><span>03</span><b>⚽</b><h3>FOOTBALL</h3></article></div>
+</section>
+<section class="section section-wrap contact" id="contact">
+<div class="section-label"><span>06</span><span>LET'S CONNECT</span></div><div class="contact-inner"><div><p class="micro-label">WANT TO WORK TOGETHER?</p><h2>Have a project?<br><em>Let’s talk.</em></h2><a class="contact-email contact-main" href="mailto:bdnemesisgaming@gmail.com">bdnemesisgaming@gmail.com ↗</a></div><div class="contact-socials" id="socialLinks"><a href="https://www.youtube.com/@badhoneditzx">YouTube ↗</a><a href="https://www.instagram.com/badhoneditzx/">Instagram ↗</a><a href="https://www.tiktok.com/@badhoneditzx">TikTok ↗</a><a href="https://t.me/badhoneditzx01">Telegram ↗</a></div></div>
+</section>
+</main>
+<footer><a class="logo" href="#home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a><p>© <span id="year">2026</span> BADHON EDITZX. MADE BY BADHON.</p><a href="#home">BACK TO TOP ↑</a></footer>
 </body></html>
