@@ -13,6 +13,6 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:20px;pa
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 /* Section entrance: content stays visible if motion is disabled or JS is unavailable. */
-.js-reveal{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.js-reveal.in-view{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.js-reveal{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.reveal.in-view{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
