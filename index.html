@@ -1,76 +1,49 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f8fcff">
-<meta name="description" content="Badhon EditZX — motion, edits, music and digital experiments.">
-<meta property="og:title" content="Badhon EditZX — Make It Move">
-<meta property="og:description" content="Independent creator exploring motion, sound and digital experiences.">
-<meta property="og:image" content="assets/badhon-editzx-logo.jpg">
-<title>Badhon EditZX — Make It Move</title>
-<link rel="icon" href="assets/badhon-editzx-logo.jpg">
+<meta name="theme-color" content="#f8fcff"><meta name="description" content="Badhon EditZX — video editing, kinetic typography, music and digital projects.">
+<meta property="og:title" content="Badhon EditZX — Make It Move"><meta property="og:description" content="Motion, sound and ideas by Badhon EditZX."><meta property="og:image" content="assets/badhon-editzx-logo.jpg">
+<title>Badhon EditZX — Make It Move</title><link rel="icon" href="assets/badhon-editzx-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1">
-<script src="script.js?v=1" defer></script>
-</head>
-<body>
+<link rel="stylesheet" href="styles.css?v=2">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js" defer></script><script src="supabase-config.js" defer></script><script src="script.js?v=2" defer></script>
+</head><body>
 <div class="scroll-line" aria-hidden="true"></div>
-<header class="header">
-  <a class="logo" href="#home" aria-label="Badhon EditZX home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a>
-  <button class="menu" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
-  <nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#craft">What I do</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-  <a class="header-link" href="mailto:bdnemesisgaming@gmail.com">LET’S TALK <b>↗</b></a>
-</header>
+<header class="header"><a class="logo" href="#home" aria-label="Badhon EditZX home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a>
+<button class="menu" id="menuToggle" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+<nav class="nav" id="mainNav" aria-label="Main navigation"><a href="#work">Work</a><a href="#motion">Motion Lab</a><a href="#craft">Skills</a><a href="#journey">Journey</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<div class="header-actions"><button id="langSwitch" class="lang-switch" type="button" aria-label="Switch to Bangla">বাংলা</button><a class="header-link" href="#contact">LET’S TALK <b>↗</b></a></div></header>
 <main id="home">
-<section class="hero">
-  <div class="hero-noise" aria-hidden="true"></div><div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="live-dot"></span> INDEPENDENT CREATOR <span class="eyebrow-slash">/</span> BD · US</p>
-      <h1><span class="line-mask"><span>MAKE</span></span><span class="line-mask"><span class="blue-word">IT MOVE<span class="period">.</span></span></span></h1>
-      <div class="hero-bottom"><p>I turn ideas into <strong>motion, sound</strong><br>and digital experiences.</p><a class="round-link" href="#work" aria-label="Explore work">↓</a></div>
-      <div class="hero-foot"><span>VIDEO EDITOR · MOTION DESIGNER · BUILDER</span><span>CREATING SINCE 2019</span></div>
-    </div>
-    <div class="hero-art" aria-label="Abstract blue motion graphic">
-      <div class="art-grid"></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div>
-      <div class="art-type">B<span>E</span>X</div><div class="art-index">FRAME<br>001—026</div>
-      <div class="art-pill">MOTION / SOUND / IDEAS</div><div class="art-line"></div>
-      <div class="art-caption">A LITTLE DIFFERENT<br>BY DESIGN.</div>
-    </div>
-  </div>
-  <div class="hero-bottomline"><span>SCROLL TO EXPLORE</span><span>01 — 04</span></div>
-</section>
-<section class="intro section-wrap">
-  <p class="micro-label">01 / THE POINT OF VIEW</p>
-  <div class="intro-grid"><h2>Not just content.<br><em>A feeling that stays.</em></h2><div><p class="large-copy">The best work has rhythm. A visual hook, a moment of surprise, a detail you remember. That’s what I chase in every edit and every idea.</p><p class="sub-copy">From typography-led edits to music and digital projects, I like making things that feel intentional, expressive and alive.</p></div></div>
-</section>
-<section class="work section-wrap" id="work">
-  <div class="section-head"><div><p class="micro-label">02 / SELECTED WORK</p><h2>Made to <em>move.</em></h2></div><span class="section-note">A FEW FRAMES FROM THE ARCHIVE ↘</span></div>
-  <div class="work-grid">
-    <a class="work-card work-feature" href="https://youtu.be/3lkTGcBtfrI" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/3lkTGcBtfrI/hqdefault.jpg" alt="Video edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">01</span></div><div class="work-meta"><div><span>VIDEO EDIT / TYPOGRAPHY</span><h3>Rhythm in every frame.</h3></div><b>WATCH ↗</b></div></a>
-    <a class="work-card" href="https://youtu.be/PHJYMsd-rZk" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/PHJYMsd-rZk/hqdefault.jpg" alt="Motion edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">02</span></div><div class="work-meta"><div><span>MOTION / VELOCITY</span><h3>Energy, cut to sound.</h3></div><b>WATCH ↗</b></div></a>
-    <a class="work-card" href="https://youtu.be/2Fji1WFDIjY" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/2Fji1WFDIjY/hqdefault.jpg" alt="Creative edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">03</span></div><div class="work-meta"><div><span>CREATIVE EDIT</span><h3>Small details. Big impact.</h3></div><b>WATCH ↗</b></div></a>
-    <a class="work-card" href="https://youtu.be/R9qE8fAiT2A" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/R9qE8fAiT2A/hqdefault.jpg" alt="Music project preview" loading="lazy"><span class="play">↗</span><span class="work-number">04</span></div><div class="work-meta"><div><span>MUSIC / SOUND</span><h3>Sound with a visual soul.</h3></div><b>WATCH ↗</b></div></a>
-  </div>
-  <a class="all-work" href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">EXPLORE THE FULL ARCHIVE <span>↗</span></a>
-</section>
-<section class="craft section-wrap" id="craft">
-  <div class="section-head"><div><p class="micro-label">03 / THE TOOLKIT</p><h2>Different skills.<br><em>One language.</em></h2></div><p class="section-note">I MIX VISUALS, SOUND<br>AND TECHNOLOGY.</p></div>
-  <div class="craft-list">
-    <article><span>01</span><h3>Motion &amp; Editing</h3><p>Velocity edits, transitions, rhythm, timing and visual storytelling.</p><b>↗</b></article>
-    <article><span>02</span><h3>Kinetic Typography</h3><p>Type that moves with purpose — expressive, precise and sound-aware.</p><b>↗</b></article>
-    <article><span>03</span><h3>Music &amp; Sound</h3><p>Exploring lyrics, production, atmosphere and the emotion behind sound.</p><b>↗</b></article>
-    <article><span>04</span><h3>Digital Building</h3><p>Turning ideas into useful products, experiments and online experiences.</p><b>↗</b></article>
-  </div>
-</section>
-<section class="about section-wrap" id="about">
-  <div class="about-card"><div class="about-top"><p class="micro-label">04 / A LITTLE ABOUT ME</p><span>THE PERSON BEHIND THE FRAMES</span></div><div class="about-body"><div class="about-mark">B<span>.</span></div><div><h2>Curious by nature.<br><em>Creative by choice.</em></h2><p>I’m Badhon — a creator who started editing in 2019 and kept exploring. Video, design, music, technology and entrepreneurship all connect through one thing: the excitement of making something from nothing.</p><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener" class="under-link">FOLLOW THE JOURNEY ↗</a></div></div><div class="about-bottom"><span>LEARN / MAKE / REPEAT</span><span>ALWAYS IN PROGRESS</span></div></div>
-</section>
-<section class="contact section-wrap" id="contact">
-  <p class="micro-label">05 / YOUR TURN</p><div class="contact-inner"><h2>Have an idea?<br><em>Let’s give it motion.</em></h2><a class="contact-button" href="mailto:bdnemesisgaming@gmail.com">START A CONVERSATION <span>↗</span></a></div>
-  <div class="socials"><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">YOUTUBE ↗</a><a href="https://www.instagram.com/badhoneditzx/" target="_blank" rel="noopener">INSTAGRAM ↗</a><a href="https://www.tiktok.com/@badhoneditzx" target="_blank" rel="noopener">TIKTOK ↗</a><a href="https://t.me/badhoneditzx01" target="_blank" rel="noopener">TELEGRAM ↗</a><a href="mailto:bdnemesisgaming@gmail.com">EMAIL ↗</a></div>
-</section>
-</main>
-<footer><a class="logo" href="#home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a><p>© <span id="year"></span> BADHON EDITZX — MADE WITH INTENTION.</p><a href="#home">BACK TO TOP ↑</a></footer>
+<section class="hero" id="hero"><div class="hero-noise" aria-hidden="true"></div><div class="hero-inner">
+<div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span><span data-cms="heroKicker" data-en="INDEPENDENT CREATOR / BD · US" data-bn="স্বাধীন ক্রিয়েটর / BD · US">INDEPENDENT CREATOR / BD · US</span></p>
+<h1><span class="line-mask"><span>MAKE</span></span><span class="line-mask"><span class="blue-word">IT MOVE<span class="period">.</span></span></span></h1>
+<div class="hero-bottom"><p data-cms="heroRole" data-en="I turn ideas into motion, sound and digital experiences." data-bn="আইডিয়াকে রূপ দিই মোশন, সাউন্ড ও ডিজিটাল অভিজ্ঞতায়।">I turn ideas into motion, sound and digital experiences.</p><a class="round-link" href="#work" aria-label="Explore work">↓</a></div>
+<div class="hero-foot"><span>VIDEO EDITOR · MOTION DESIGNER · BUILDER</span><span>CREATING SINCE 2019</span></div></div>
+<div class="hero-art" aria-label="BEX motion artwork"><div class="hero-media" id="heroMedia"><img id="heroPoster" src="assets/hero-silhouette.png" alt="Badhon EditZX creative portrait" onerror="this.hidden=true"></div><div class="art-grid"></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-type">B<span>E</span>X</div><div class="art-index">FRAME<br>001—026</div><div class="art-pill">MOTION / SOUND / IDEAS</div><div class="art-caption">A LITTLE DIFFERENT<br>BY DESIGN.</div></div>
+</div><div class="hero-bottomline"><span>SCROLL TO EXPLORE</span><span>01 — 06</span></div></section>
+<section class="intro section-wrap"><p class="micro-label">01 / THE POINT OF VIEW</p><div class="intro-grid"><h2>Not just content.<br><em>A feeling that stays.</em></h2><div><p class="large-copy" data-cms="introQuote" data-en="The best work has rhythm. A visual hook, a moment of surprise, a detail you remember." data-bn="সেরা কাজের নিজস্ব ছন্দ থাকে—একটি ভিজ্যুয়াল হুক, চমক, আর মনে রাখার মতো একটি মুহূর্ত।">The best work has rhythm. A visual hook, a moment of surprise, a detail you remember.</p><p class="sub-copy">From typography-led edits to music and digital projects, I make things that feel intentional, expressive and alive.</p></div></div></section>
+<section class="work section-wrap" id="work"><div class="section-head"><div><p class="micro-label">02 / SELECTED WORK</p><h2>Made to <em>move.</em></h2></div><span class="section-note">A FEW FRAMES FROM THE ARCHIVE ↘</span></div>
+<div class="work-grid" id="videoGrid">
+<a class="work-card work-feature" href="https://youtu.be/3lkTGcBtfrI" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/3lkTGcBtfrI/hqdefault.jpg" alt="Video edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">01</span></div><div class="work-meta"><div><span>VIDEO EDIT / TYPOGRAPHY</span><h3>Rhythm in every frame.</h3></div><b>WATCH ↗</b></div></a>
+<a class="work-card" href="https://youtu.be/PHJYMsd-rZk" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/PHJYMsd-rZk/hqdefault.jpg" alt="Motion edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">02</span></div><div class="work-meta"><div><span>MOTION / VELOCITY</span><h3>Energy, cut to sound.</h3></div><b>WATCH ↗</b></div></a>
+<a class="work-card" href="https://youtu.be/2Fji1WFDIjY" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/2Fji1WFDIjY/hqdefault.jpg" alt="Creative edit project preview" loading="lazy"><span class="play">↗</span><span class="work-number">03</span></div><div class="work-meta"><div><span>CREATIVE EDIT</span><h3>Small details. Big impact.</h3></div><b>WATCH ↗</b></div></a>
+<a class="work-card" href="https://youtu.be/R9qE8fAiT2A" target="_blank" rel="noopener"><div class="work-image"><img src="https://i.ytimg.com/vi/R9qE8fAiT2A/hqdefault.jpg" alt="Music project preview" loading="lazy"><span class="play">↗</span><span class="work-number">04</span></div><div class="work-meta"><div><span>MUSIC / SOUND</span><h3>Sound with a visual soul.</h3></div><b>WATCH ↗</b></div></a></div>
+<div class="cms-projects" id="projectsGrid"></div><a class="all-work" href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">EXPLORE THE FULL ARCHIVE <span>↗</span></a></section>
+<section class="motion section-wrap" id="motion"><div class="section-head"><div><p class="micro-label">03 / INTERACTIVE MOTION LAB</p><h2>Tap into <em>motion.</em></h2></div><span class="section-note">2D STUDIES · LIVE INTERACTION</span></div>
+<div class="motion-grid">
+<button class="motion-card type-card" data-motion="type" type="button"><span class="motion-no">01 / TYPE STUDY</span><span class="type-demo">Aa<span>!</span></span><strong>Kinetic Typography</strong><small>Hover / tap to animate</small></button>
+<button class="motion-card velocity-card" data-motion="velocity" type="button"><span class="motion-no">02 / VELOCITY</span><span class="velocity-demo"><i></i><i></i><i></i><i></i><i></i></span><strong>Velocity Sync</strong><small>Speed, rhythm, impact</small></button>
+<button class="motion-card shape-card" data-motion="shape" type="button"><span class="motion-no">03 / SHAPE LANGUAGE</span><span class="shape-demo"><i></i><i></i><i></i></span><strong>2D Motion Graphics</strong><small>Tap to morph the forms</small></button>
+<button class="motion-card sound-card" data-motion="sound" type="button"><span class="motion-no">04 / SOUND DESIGN</span><span class="sound-demo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><strong>Sound & Waveform</strong><small id="soundStatus">Tap to activate the sound study</small><span class="sound-toggle" id="soundToggle">PLAY STUDY ↗</span></button>
+</div><p class="motion-hint" id="motionHint" aria-live="polite">Choose a study to see its motion response.</p></section>
+<section class="craft section-wrap" id="craft"><div class="section-head"><div><p class="micro-label">04 / THE TOOLKIT</p><h2>Different skills.<br><em>One language.</em></h2></div><p class="section-note">VISUALS · SOUND · TECHNOLOGY</p></div>
+<div class="craft-list" id="skillsGrid"><article><span>01</span><h3>Motion & Editing</h3><p>Velocity edits, transitions, rhythm, timing and visual storytelling.</p><b>↗</b></article><article><span>02</span><h3>Kinetic Typography</h3><p>Type that moves with purpose — expressive, precise and sound-aware.</p><b>↗</b></article><article><span>03</span><h3>Music & Sound</h3><p>Exploring lyrics, production, atmosphere and emotion.</p><b>↗</b></article><article><span>04</span><h3>Digital Building</h3><p>Turning ideas into useful products and online experiences.</p><b>↗</b></article></div>
+<div class="drone-panel"><div><p class="micro-label">SPECIAL INTEREST / AERIAL VISUALS</p><h3>Drone & Aerial Work</h3><p>Exploring cinematic perspectives, aerial framing and movement from above.</p></div><div class="drone-orbit"><span>ALTITUDE</span><b>∞</b><span>NEW PERSPECTIVE</span></div></div></section>
+<section class="journey section-wrap" id="journey"><div class="section-head"><div><p class="micro-label">05 / THE JOURNEY</p><h2>Built one frame <em>at a time.</em></h2></div><span class="section-note">LEARN · BUILD · REPEAT</span></div><div class="timeline" id="timelineGrid"><article><span>2019</span><div><h3>First edits</h3><p>Started exploring video editing and creative expression.</p></div></article><article><span>2022</span><div><h3>BADHON EDITZX</h3><p>Built a creator identity around edits, presets and motion.</p></div></article><article><span>2025—NOW</span><div><h3>Beyond the timeline</h3><p>Exploring music, entrepreneurship, technology and digital products.</p></div></article></div>
+<div class="project-feature"><div class="project-copy"><p class="micro-label">BUILT PROJECT / E-COMMERCE</p><h3>GrabZone<span>.</span></h3><p data-cms="projectDescription" data-en="A multi-vendor marketplace project focused on building a practical digital shopping experience." data-bn="একটি মাল্টি-ভেন্ডর মার্কেটপ্লেস, যেখানে ব্যবহারিক ডিজিটাল শপিং অভিজ্ঞতা তৈরি করা হচ্ছে।">A multi-vendor marketplace project focused on building a practical digital shopping experience.</p><a href="https://grabzone.tech/" target="_blank" rel="noopener">EXPLORE GRABZONE ↗</a></div><div class="project-art"><span>GZ</span><i></i><i></i><i></i></div></div></section>
+<section class="about section-wrap" id="about"><div class="about-card"><div class="about-top"><p class="micro-label">06 / A LITTLE ABOUT ME</p><span>THE PERSON BEHIND THE FRAMES</span></div><div class="about-body"><div class="about-mark">B<span>.</span></div><div><h2>Curious by nature.<br><em>Creative by choice.</em></h2><p data-cms="aboutIntro" data-en="I’m Badhon — a creator who started editing in 2019 and kept exploring. Video, design, music, technology and entrepreneurship connect through one thing: making something from nothing." data-bn="আমি বাধন—২০১৯ সালে এডিটিং শুরু করি, তারপর থেকে নতুন কিছু শেখা ও তৈরি করা চালিয়ে যাচ্ছি। ভিডিও, ডিজাইন, মিউজিক, প্রযুক্তি ও উদ্যোক্তা ভাবনা—সবকিছুর মিল হলো শূন্য থেকে কিছু তৈরি করা।">I’m Badhon — a creator who started editing in 2019 and kept exploring. Video, design, music, technology and entrepreneurship connect through one thing: making something from nothing.</p><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener" class="under-link">FOLLOW THE JOURNEY ↗</a></div></div><div class="about-bottom"><span>LEARN / MAKE / REPEAT</span><span>ALWAYS IN PROGRESS</span></div></div></section>
+<section class="contact section-wrap" id="contact"><p class="micro-label">07 / YOUR TURN</p><div class="contact-inner"><h2>Have an idea?<br><em>Let’s give it motion.</em></h2><button class="contact-button" type="button" data-open-contact>START A CONVERSATION <span>↗</span></button></div><div class="socials"><a href="https://www.youtube.com/@badhoneditzx" target="_blank" rel="noopener">YOUTUBE ↗</a><a href="https://www.instagram.com/badhoneditzx/" target="_blank" rel="noopener">INSTAGRAM ↗</a><a href="https://www.tiktok.com/@badhoneditzx" target="_blank" rel="noopener">TIKTOK ↗</a><a href="https://t.me/badhoneditzx01" target="_blank" rel="noopener">TELEGRAM ↗</a><a href="mailto:bdnemesisgaming@gmail.com">EMAIL ↗</a></div></section>
+</main><footer><a class="logo" href="#home"><img src="assets/badhon-editzx-logo.jpg" alt=""><span>BADHON<span>EDITZX</span></span></a><p>© <span id="year"></span> BADHON EDITZX — MADE WITH INTENTION.</p><a href="/admin.html" rel="nofollow">ADMIN STUDIO ↗</a><a href="#home">BACK TO TOP ↑</a></footer>
+<dialog class="contact-dialog" id="contactDialog"><form name="portfolio-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm"><input type="hidden" name="form-name" value="portfolio-contact"><p class="micro-label">LET’S MAKE SOMETHING</p><h2>Send a message<span>.</span></h2><p class="bot-trap"><label>Leave this empty<input name="bot-field"></label></p><label>Your name<input name="name" required maxlength="100" placeholder="Name"></label><label>Email address<input name="email" type="email" required maxlength="180" placeholder="you@example.com"></label><label>What’s on your mind?<textarea name="message" rows="5" required maxlength="3000" placeholder="Tell me about your idea…"></textarea></label><div class="dialog-actions"><button type="button" class="dialog-close" data-close-contact>Close</button><button type="submit" class="dialog-send">Send message ↗</button></div><p id="contactStatus" role="status" aria-live="polite"></p></form></dialog>
 </body></html>
